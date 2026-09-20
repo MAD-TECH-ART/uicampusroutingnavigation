@@ -35,16 +35,15 @@ University of Ibadan is large enough that students, visitors, and staff can stru
 
 ## Folder structure
 - [README.md](README.md) — project overview and preview instructions
-- [UI_Campus_Routing_Interactive_Demo-1.html](UI_Campus_Routing_Interactive_Demo-1.html) — static legacy demo version
-- [ui-routing-code-package/](ui-routing-code-package/) — app source and route logic
-  - [ui-routing-code-package/ui_routing_demo.html](ui-routing-code-package/ui_routing_demo.html) — generated active browser app
-  - [ui-routing-code-package/demo_template.html](ui-routing-code-package/demo_template.html) — source template for the active app
-  - [ui-routing-code-package/api.py](ui-routing-code-package/api.py) — FastAPI service
-  - [ui-routing-code-package/astar.py](ui-routing-code-package/astar.py) — A* search
-  - [ui-routing-code-package/dijkstra.py](ui-routing-code-package/dijkstra.py) — Dijkstra search
-  - [ui-routing-code-package/campus_graph.py](ui-routing-code-package/campus_graph.py) — campus graph model
-  - [ui-routing-code-package/live_conditions.py](ui-routing-code-package/live_conditions.py) — congestion and time-profile model
-  - [ui-routing-code-package/data/](ui-routing-code-package/data/) — campus graph, place, and route data
+- [ui_logo.png](ui_logo.png) — University of Ibadan logo used in the app header and favicon
+- [uicampusroutingnavigation/](uicampusroutingnavigation/) — active app source and route logic
+  - [uicampusroutingnavigation/ui_routing_demo.html](uicampusroutingnavigation/ui_routing_demo.html) — generated active browser app
+  - [uicampusroutingnavigation/demo_template.html](uicampusroutingnavigation/demo_template.html) — source template for the active app
+  - [uicampusroutingnavigation/api.py](uicampusroutingnavigation/api.py) — FastAPI service
+  - [uicampusroutingnavigation/astar.py](uicampusroutingnavigation/astar.py) — A* search
+  - [uicampusroutingnavigation/dijkstra.py](uicampusroutingnavigation/dijkstra.py) — Dijkstra search
+  - [uicampusroutingnavigation/campus_graph.py](uicampusroutingnavigation/campus_graph.py) — campus graph model
+  - [uicampusroutingnavigation/data/](uicampusroutingnavigation/data/) — campus graph, place, and route data
 
 ## Preview in Chrome
 From the workspace root, run:
@@ -53,7 +52,7 @@ From the workspace root, run:
 2. Start a static server:
    python -m http.server 8002
 3. Open Chrome and visit:
-   http://localhost:8002/ui-routing-code-package/ui_routing_demo.html
+   http://localhost:8002/uicampusroutingnavigation/ui_routing_demo.html
 
 No API key is required for the default browser preview because the app uses Leaflet + OpenStreetMap tiles and browser geolocation.
 
