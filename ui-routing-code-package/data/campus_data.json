@@ -1,0 +1,82 @@
+{
+  "_comment": "University of Ibadan campus network. Edit this file to add/move/remove locations and roads — no code changes needed. Coordinates are relative planar metres, not surveyed GPS.",
+  "nodes": [
+    { "id": "MAIN_GATE",      "name": "Main Gate (Oduduwa Rd)",               "category": "gate",      "x": 0,    "y": 0   },
+    { "id": "SUB",            "name": "Student Union Building",               "category": "landmark",  "x": 300,  "y": 150 },
+    { "id": "LIBRARY",        "name": "Kenneth Dike Library",                 "category": "landmark",  "x": 500,  "y": 250 },
+    { "id": "SENATE",         "name": "Senate Building",                      "category": "landmark",  "x": 550,  "y": 400 },
+    { "id": "TRENCHARD",      "name": "Trenchard Hall",                       "category": "landmark",  "x": 420,  "y": 230 },
+    { "id": "CHAPEL",         "name": "Chapel of the Resurrection",           "category": "landmark",  "x": 650,  "y": 150 },
+    { "id": "MOSQUE",         "name": "Central Mosque",                       "category": "landmark",  "x": 350,  "y": 200 },
+    { "id": "POST_OFFICE",    "name": "Post Office",                          "category": "landmark",  "x": 280,  "y": 300 },
+    { "id": "BOOKSHOP",       "name": "University Bookshop",                  "category": "landmark",  "x": 430,  "y": 360 },
+    { "id": "HEALTH_CENTRE",  "name": "University Health Centre (Jaja Clinic)","category": "landmark", "x": 550,  "y": 355 },
+    { "id": "ICT_CENTRE",     "name": "ICT Centre",                           "category": "landmark",  "x": 660,  "y": 330 },
+
+    { "id": "FAC_ARTS",       "name": "Faculty of Arts",                      "category": "faculty",   "x": 650,  "y": 450 },
+    { "id": "FAC_LAW",        "name": "Faculty of Law",                       "category": "faculty",   "x": 500,  "y": 550 },
+    { "id": "FAC_SOC_SCI",    "name": "Faculty of the Social Sciences",       "category": "faculty",   "x": 750,  "y": 550 },
+    { "id": "INST_AFR",       "name": "Institute of African Studies",         "category": "institute", "x": 720,  "y": 470 },
+    { "id": "FAC_EDUCATION",  "name": "Faculty of Education",                 "category": "faculty",   "x": 550,  "y": 750 },
+    { "id": "INST_EDUCATION", "name": "Institute of Education",               "category": "institute", "x": 600,  "y": 810 },
+    { "id": "FAC_ECON_MGT",   "name": "Faculty of Economics & Management Sciences", "category": "faculty", "x": 420, "y": 820 },
+
+    { "id": "FAC_SCI",        "name": "Faculty of Science",                   "category": "faculty",   "x": 700,  "y": 200 },
+    { "id": "FAC_TECH",       "name": "Faculty of Technology",                "category": "faculty",   "x": 900,  "y": 300 },
+    { "id": "ZOO",            "name": "Zoological Garden",                    "category": "landmark",  "x": 850,  "y": 100 },
+    { "id": "BOTANICAL",      "name": "Botanical Garden",                     "category": "landmark",  "x": 750,  "y": 40  },
+    { "id": "FAC_AGRIC",      "name": "Faculty of Agriculture",               "category": "faculty",   "x": 1000, "y": 150 },
+    { "id": "FAC_RENEWABLE",  "name": "Faculty of Renewable Natural Resources","category": "faculty",  "x": 1080, "y": 90  },
+    { "id": "FAC_ENV_DESIGN", "name": "Faculty of Environmental Design & Management", "category": "faculty", "x": 970, "y": 250 },
+
+    { "id": "UCH",            "name": "University College Hospital",          "category": "landmark",  "x": 1150, "y": 220 },
+    { "id": "FAC_BASIC_MED",  "name": "Faculty of Basic Medical Sciences",    "category": "faculty",   "x": 1230, "y": 270 },
+    { "id": "FAC_CLINICAL",   "name": "Faculty of Clinical Sciences",         "category": "faculty",   "x": 1290, "y": 190 },
+    { "id": "FAC_DENTISTRY",  "name": "Faculty of Dentistry",                 "category": "faculty",   "x": 1340, "y": 250 },
+    { "id": "FAC_PUB_HEALTH", "name": "Faculty of Public Health",             "category": "faculty",   "x": 1230, "y": 350 },
+    { "id": "ALEX_BROWN",     "name": "Alexander Brown Hall",                 "category": "hall",      "x": 1150, "y": 400 },
+
+    { "id": "FAC_PHARMACY",   "name": "Faculty of Pharmacy",                  "category": "faculty",   "x": 790,  "y": 690 },
+    { "id": "FAC_VET_MED",    "name": "Faculty of Veterinary Medicine",       "category": "faculty",   "x": 900,  "y": 770 },
+
+    { "id": "MELLANBY",       "name": "Mellanby Hall",                        "category": "hall",      "x": 200,  "y": 350 },
+    { "id": "TEDDER",         "name": "Tedder Hall",                          "category": "hall",      "x": 250,  "y": 450 },
+    { "id": "KUTI",           "name": "Kuti Hall",                            "category": "hall",      "x": 150,  "y": 500 },
+    { "id": "SULTAN_BELLO",   "name": "Sultan Bello Hall",                    "category": "hall",      "x": 350,  "y": 600 },
+    { "id": "INDEPENDENCE",   "name": "Independence Hall",                    "category": "hall",      "x": 450,  "y": 700 },
+    { "id": "AZIKIWE",        "name": "Nnamdi Azikiwe Hall",                  "category": "hall",      "x": 400,  "y": 650 },
+    { "id": "TAFAWA_PG",      "name": "Tafawa Balewa Hall (Postgrad)",        "category": "hall",      "x": 380,  "y": 680 },
+
+    { "id": "QUEEN_IDIA",     "name": "Queen Idia Hall",                      "category": "hall",      "x": 900,  "y": 650 },
+    { "id": "QEII",           "name": "Queen Elizabeth II Hall",              "category": "hall",      "x": 990,  "y": 540 },
+    { "id": "AWOLOWO_PG",     "name": "Obafemi Awolowo Hall (Postgrad)",      "category": "hall",      "x": 1040, "y": 430 },
+    { "id": "ABDUSALAMI_PG",  "name": "Abdusalami Abubakar Hall (Postgrad)",  "category": "hall",      "x": 1130, "y": 460 },
+
+    { "id": "STADIUM",        "name": "Sports Centre / Stadium",              "category": "landmark",  "x": 1000, "y": 780 }
+  ],
+  "edges": [
+    ["MAIN_GATE", "SUB"], ["SUB", "MOSQUE"], ["MOSQUE", "POST_OFFICE"], ["POST_OFFICE", "BOOKSHOP"],
+    ["BOOKSHOP", "HEALTH_CENTRE"], ["HEALTH_CENTRE", "LIBRARY"], ["SUB", "LIBRARY"], ["LIBRARY", "TRENCHARD"],
+    ["TRENCHARD", "SENATE"], ["LIBRARY", "SENATE"], ["LIBRARY", "ICT_CENTRE"], ["ICT_CENTRE", "SENATE"],
+    ["SENATE", "CHAPEL"], ["CHAPEL", "FAC_SCI"],
+
+    ["SENATE", "FAC_ARTS"], ["FAC_ARTS", "INST_AFR"], ["FAC_ARTS", "FAC_SOC_SCI"], ["SENATE", "FAC_LAW"],
+    ["FAC_LAW", "FAC_SOC_SCI"], ["FAC_LAW", "SULTAN_BELLO"], ["FAC_LAW", "FAC_EDUCATION"],
+    ["FAC_EDUCATION", "INST_EDUCATION"], ["FAC_EDUCATION", "FAC_ECON_MGT"], ["FAC_ECON_MGT", "INDEPENDENCE"],
+
+    ["SUB", "MELLANBY"], ["MELLANBY", "TEDDER"], ["TEDDER", "KUTI"], ["TEDDER", "SULTAN_BELLO"],
+    ["SULTAN_BELLO", "TAFAWA_PG"], ["SULTAN_BELLO", "AZIKIWE"], ["AZIKIWE", "INDEPENDENCE"],
+    ["INDEPENDENCE", "STADIUM"],
+
+    ["FAC_SOC_SCI", "QUEEN_IDIA"], ["QUEEN_IDIA", "QEII"], ["QEII", "AWOLOWO_PG"],
+    ["AWOLOWO_PG", "ABDUSALAMI_PG"], ["QUEEN_IDIA", "STADIUM"], ["FAC_SOC_SCI", "STADIUM"],
+
+    ["FAC_SCI", "FAC_TECH"], ["FAC_SCI", "ZOO"], ["ZOO", "BOTANICAL"], ["FAC_TECH", "FAC_ENV_DESIGN"],
+    ["FAC_ENV_DESIGN", "FAC_AGRIC"], ["FAC_AGRIC", "FAC_RENEWABLE"], ["FAC_TECH", "UCH"],
+
+    ["UCH", "FAC_BASIC_MED"], ["FAC_BASIC_MED", "FAC_CLINICAL"], ["FAC_CLINICAL", "FAC_DENTISTRY"],
+    ["FAC_BASIC_MED", "FAC_PUB_HEALTH"], ["FAC_PUB_HEALTH", "ALEX_BROWN"], ["ALEX_BROWN", "AWOLOWO_PG"],
+
+    ["FAC_SOC_SCI", "FAC_PHARMACY"], ["FAC_PHARMACY", "FAC_VET_MED"], ["FAC_VET_MED", "STADIUM"]
+  ]
+}

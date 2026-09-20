@@ -1,0 +1,11 @@
+{
+  "metadata": {
+    "source": "OpenStreetMap campus_places.json",
+    "status": "candidate_review_only",
+    "note": "Candidates are explicit name or alias matches and are not approved routing coordinates.",
+    "candidate_node_count": 0,
+    "routing_node_count": 45,
+    "verified_node_count": 16
+  },
+  "nodes": {}
+}

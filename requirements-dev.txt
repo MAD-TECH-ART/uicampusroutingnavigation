@@ -1,0 +1,3 @@
+-r ui-routing-code-package/requirements.txt
+pytest>=8.0
+httpx>=0.27

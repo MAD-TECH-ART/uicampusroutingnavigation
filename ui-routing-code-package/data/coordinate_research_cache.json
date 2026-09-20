@@ -1,0 +1,579 @@
+{
+  "metadata": {
+    "source": "OpenStreetMap Nominatim",
+    "status": "candidate_research_only",
+    "cached_at": "2026-09-20",
+    "note": "Only actual returned results are cached. Candidates are not verified and are not merged into campus_coordinates.json.",
+    "last_research_at": "2026-09-20T05:59:25.618556+00:00"
+  },
+  "queries": {
+    "LIBRARY": {
+      "query": "Kenneth Dike Library, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Kenneth%20Dike%20Library%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 362847568,
+          "source_url": "https://www.openstreetmap.org/way/362847568",
+          "latitude": 7.4466435,
+          "longitude": 3.8961044,
+          "display_name": "Kenneth Dike, Cross Road, University of Ibadan, Ibadan North, Oyo State, 200213, Nigeria",
+          "category": "amenity",
+          "type": "library",
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "boundingbox": [
+            "7.4462855",
+            "7.4470098",
+            "3.8958221",
+            "3.8963899"
+          ],
+          "confidence": "medium",
+          "verified": false,
+          "notes": "Nominatim result is explicitly inside University of Ibadan and is typed as a library; review the building footprint before approval."
+        }
+      ]
+    },
+    "BOOKSHOP": {
+      "query": "University Bookshop, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=University%20Bookshop%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 364487911,
+          "source_url": "https://www.openstreetmap.org/way/364487911",
+          "latitude": 7.4452337,
+          "longitude": 3.9004903,
+          "display_name": "University Bookshop, Chapel Road, University of Ibadan, Ibadan North, Oyo State, 200213, Nigeria",
+          "category": "building",
+          "type": "yes",
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "boundingbox": [
+            "7.4450596",
+            "7.4454078",
+            "3.9003528",
+            "3.9006278"
+          ],
+          "confidence": "medium",
+          "verified": false,
+          "notes": "Nominatim result is explicitly inside University of Ibadan and is named University Bookshop; review the footprint and representative point before approval."
+        }
+      ]
+    },
+    "MAIN_GATE": {
+      "query": "Main Gate, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Main%20Gate%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "no_result",
+      "results": []
+    },
+    "SENATE": {
+      "query": "Senate Building, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Senate%20Building%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "no_result",
+      "results": []
+    },
+    "TRENCHARD": {
+      "query": "Trenchard Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Trenchard%20Hall%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "no_result",
+      "results": []
+    },
+    "CHAPEL": {
+      "query": "Chapel of the Resurrection, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Chapel%20of%20the%20Resurrection%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "no_result",
+      "results": []
+    },
+    "HEALTH_CENTRE": {
+      "query": "University Health Centre, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=University%20Health%20Centre%2C%20University%20of%20Ibadan%2C%20Nigeria&format=jsonv2&limit=5",
+      "status": "no_result",
+      "results": []
+    },
+    "SUB": {
+      "query": "Student Union Building, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Student+Union+Building%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:05.159571+00:00",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 97622322,
+          "source_url": "https://www.openstreetmap.org/way/97622322",
+          "latitude": 7.4445051,
+          "longitude": 3.8983064,
+          "display_name": "Student Union Building, Dyke Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "amenity",
+          "type": "social_facility",
+          "boundingbox": [
+            "7.4441548",
+            "7.4447892",
+            "3.8980049",
+            "3.8986078"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        },
+        {
+          "osm_type": "relation",
+          "osm_id": 5399579,
+          "source_url": "https://www.openstreetmap.org/relation/5399579",
+          "latitude": 7.4442877,
+          "longitude": 3.8984783,
+          "display_name": "Student Union Building, Niger Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "amenity",
+          "type": "university",
+          "boundingbox": [
+            "7.4442540",
+            "7.4443213",
+            "3.8984543",
+            "3.8985024"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        }
+      ]
+    },
+    "MOSQUE": {
+      "query": "Central Mosque, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Central+Mosque%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:07.480733+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "POST_OFFICE": {
+      "query": "Post Office, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Post+Office%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:09.765348+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "ICT_CENTRE": {
+      "query": "ICT Centre, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=ICT+Centre%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:12.427263+00:00",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 362951238,
+          "source_url": "https://www.openstreetmap.org/way/362951238",
+          "latitude": 7.4471998,
+          "longitude": 3.896306,
+          "display_name": "University's ICT Centre, Benue Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "building",
+          "type": "yes",
+          "boundingbox": [
+            "7.4470831",
+            "7.4473120",
+            "3.8961393",
+            "3.8965384"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        }
+      ]
+    },
+    "FAC_ARTS": {
+      "query": "Faculty of Arts, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Arts%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:14.370900+00:00",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "relation",
+          "osm_id": 5399416,
+          "source_url": "https://www.openstreetmap.org/relation/5399416",
+          "latitude": 7.4457303,
+          "longitude": 3.8974966,
+          "display_name": "Faculty of Arts, Emotan Lane, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "building",
+          "type": "yes",
+          "boundingbox": [
+            "7.4455931",
+            "7.4465570",
+            "3.8962447",
+            "3.8977203"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        }
+      ]
+    },
+    "FAC_LAW": {
+      "query": "Faculty of Law, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Law%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:16.831699+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_SOC_SCI": {
+      "query": "Faculty of the Social Sciences, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+the+Social+Sciences%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:18.954776+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "INST_AFR": {
+      "query": "Institute of African Studies, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Institute+of+African+Studies%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:21.125848+00:00",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 911285088,
+          "source_url": "https://www.openstreetmap.org/way/911285088",
+          "latitude": 7.4476635,
+          "longitude": 3.8940627,
+          "display_name": "Institute of African Studies and IFRA Nigeria, Kwara Road, University of Ibadan, \u00ccb\u00e0d\u00e0n, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "building",
+          "type": "yes",
+          "boundingbox": [
+            "7.4473917",
+            "7.4479316",
+            "3.8935858",
+            "3.8942051"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        }
+      ]
+    },
+    "FAC_EDUCATION": {
+      "query": "Faculty of Education, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Education%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:23.383150+00:00",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 758353374,
+          "source_url": "https://www.openstreetmap.org/way/758353374",
+          "latitude": 7.4476804,
+          "longitude": 3.8955026,
+          "display_name": "Faculty of Education, Benue Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "building",
+          "type": "yes",
+          "boundingbox": [
+            "7.4472866",
+            "7.4481103",
+            "3.8953433",
+            "3.8959881"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 362949628,
+          "source_url": "https://www.openstreetmap.org/way/362949628",
+          "latitude": 7.448064,
+          "longitude": 3.8950877,
+          "display_name": "Faculty of Education, Chad Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "amenity",
+          "type": "university",
+          "boundingbox": [
+            "7.4478296",
+            "7.4482983",
+            "3.8949563",
+            "3.8952190"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 362949626,
+          "source_url": "https://www.openstreetmap.org/way/362949626",
+          "latitude": 7.4481657,
+          "longitude": 3.8954168,
+          "display_name": "Faculty of Education, Benue Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "amenity",
+          "type": "university",
+          "boundingbox": [
+            "7.4480526",
+            "7.4482788",
+            "3.8952227",
+            "3.8956109"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        },
+        {
+          "osm_type": "way",
+          "osm_id": 362949630,
+          "source_url": "https://www.openstreetmap.org/way/362949630",
+          "latitude": 7.4475689,
+          "longitude": 3.8952158,
+          "display_name": "Faculty of Education, Cross Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "amenity",
+          "type": "university",
+          "boundingbox": [
+            "7.4474728",
+            "7.4476761",
+            "3.8950435",
+            "3.8953881"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        }
+      ]
+    },
+    "INST_EDUCATION": {
+      "query": "Institute of Education, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Institute+of+Education%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:25.430578+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_ECON_MGT": {
+      "query": "Faculty of Economics & Management Sciences, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Economics+%26+Management+Sciences%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:27.274489+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_SCI": {
+      "query": "Faculty of Science, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Science%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:29.322528+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_TECH": {
+      "query": "Faculty of Technology, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Technology%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:31.370206+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "ZOO": {
+      "query": "Zoological Garden, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Zoological+Garden%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:33.417936+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "BOTANICAL": {
+      "query": "Botanical Garden, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Botanical+Garden%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:35.873855+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_AGRIC": {
+      "query": "Faculty of Agriculture, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Agriculture%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:37.718661+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_RENEWABLE": {
+      "query": "Faculty of Renewable Natural Resources, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Renewable+Natural+Resources%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:40.586954+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_ENV_DESIGN": {
+      "query": "Faculty of Environmental Design & Management, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Environmental+Design+%26+Management%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:42.305807+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "UCH": {
+      "query": "University College Hospital, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=University+College+Hospital%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:44.864845+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_BASIC_MED": {
+      "query": "Faculty of Basic Medical Sciences, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Basic+Medical+Sciences%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:46.934302+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_CLINICAL": {
+      "query": "Faculty of Clinical Sciences, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Clinical+Sciences%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:49.221205+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_DENTISTRY": {
+      "query": "Faculty of Dentistry, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Dentistry%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:51.440145+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_PUB_HEALTH": {
+      "query": "Faculty of Public Health, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Public+Health%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:53.245165+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "ALEX_BROWN": {
+      "query": "Alexander Brown Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Alexander+Brown+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:55.157155+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_PHARMACY": {
+      "query": "Faculty of Pharmacy, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Pharmacy%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:58:57.685975+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "FAC_VET_MED": {
+      "query": "Faculty of Veterinary Medicine, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Faculty+of+Veterinary+Medicine%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:00.247215+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "MELLANBY": {
+      "query": "Mellanby Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Mellanby+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:02.088986+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "TEDDER": {
+      "query": "Tedder Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Tedder+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:03.993828+00:00",
+      "status": "candidate_found",
+      "results": [
+        {
+          "osm_type": "way",
+          "osm_id": 364487934,
+          "source_url": "https://www.openstreetmap.org/way/364487934",
+          "latitude": 7.4452324,
+          "longitude": 3.8989548,
+          "display_name": "Tedder Hall, Dyke Road, University of Ibadan, Ibadan North, Oyo, 200213, Nigeria",
+          "category": "building",
+          "type": "yes",
+          "boundingbox": [
+            "7.4449709",
+            "7.4454938",
+            "3.8988051",
+            "3.8991045"
+          ],
+          "campus_context_match": true,
+          "within_review_bounds": true,
+          "verified": false,
+          "status": "candidate",
+          "notes": "Candidate only; human review required before approval."
+        }
+      ]
+    },
+    "KUTI": {
+      "query": "Kuti Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Kuti+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:05.967245+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "SULTAN_BELLO": {
+      "query": "Sultan Bello Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Sultan+Bello+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:08.438625+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "INDEPENDENCE": {
+      "query": "Independence Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Independence+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:10.586680+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "AZIKIWE": {
+      "query": "Nnamdi Azikiwe Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Nnamdi+Azikiwe+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:12.431866+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "TAFAWA_PG": {
+      "query": "Tafawa Balewa Hall (Postgrad), University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Tafawa+Balewa+Hall+%28Postgrad%29%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:14.890178+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "QUEEN_IDIA": {
+      "query": "Queen Idia Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Queen+Idia+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:16.731026+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "QEII": {
+      "query": "Queen Elizabeth II Hall, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Queen+Elizabeth+II+Hall%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:18.498612+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "AWOLOWO_PG": {
+      "query": "Obafemi Awolowo Hall (Postgrad), University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Obafemi+Awolowo+Hall+%28Postgrad%29%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:20.726093+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "ABDUSALAMI_PG": {
+      "query": "Abdusalami Abubakar Hall (Postgrad), University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Abdusalami+Abubakar+Hall+%28Postgrad%29%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:22.672143+00:00",
+      "status": "no_result",
+      "results": []
+    },
+    "STADIUM": {
+      "query": "Sports Centre / Stadium, University of Ibadan, Nigeria",
+      "source_url": "https://nominatim.openstreetmap.org/search?q=Sports+Centre+%2F+Stadium%2C+University+of+Ibadan%2C+Nigeria&format=jsonv2&limit=5",
+      "queried_at": "2026-09-20T05:59:24.617586+00:00",
+      "status": "no_result",
+      "results": []
+    }
+  }
+}

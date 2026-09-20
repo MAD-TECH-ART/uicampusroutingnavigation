@@ -1,0 +1,3515 @@
+{
+  "metadata": {
+    "source": "OpenStreetMap API 0.6 map extract",
+    "status": "display_research_only",
+    "coordinate_system": "WGS84",
+    "campus_bounds": {
+      "min_lat": 7.4377245,
+      "max_lat": 7.4585,
+      "min_lng": 3.8867116,
+      "max_lng": 3.9067116
+    },
+    "downloaded_at": "2026-09-20T06:45:38.038584+00:00",
+    "note": "Named features are displayed on the map but are not routing nodes or approved survey coordinates.",
+    "named_feature_count": 222,
+    "duplicate_name_count": 42,
+    "representative_points_outside_bounds": 16
+  },
+  "places": [
+    {
+      "id": "way/274205499",
+      "name": "Abdullahi Road",
+      "latitude": 7.4516051,
+      "longitude": 3.8870117,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205499",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Abdullahi Road"
+      }
+    },
+    {
+      "id": "way/583417451",
+      "name": "Abdullahi Road",
+      "latitude": 7.4508517,
+      "longitude": 3.8871567,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583417451",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Abdullahi Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "relation/3775425",
+      "name": "Abu Bakar Salam P. G. Hall",
+      "latitude": 7.4386949,
+      "longitude": 3.8951996,
+      "feature_type": "relation",
+      "category": "residential",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/3775425",
+      "tags": {
+        "landuse": "residential",
+        "name": "Abu Bakar Salam P. G. Hall",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "id": "way/97622612",
+      "name": "Administration Building",
+      "latitude": 7.4446095,
+      "longitude": 3.8991679,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622612",
+      "tags": {
+        "amenity": "university",
+        "building": "yes",
+        "name": "Administration Building",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274211580",
+      "name": "Africanus Horton Road",
+      "latitude": 7.4453273,
+      "longitude": 3.8933478,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211580",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Africanus Horton Road"
+      }
+    },
+    {
+      "id": "way/758446383",
+      "name": "Ajibode",
+      "latitude": 7.462857,
+      "longitude": 3.8925227,
+      "feature_type": "way",
+      "category": "residential",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/758446383",
+      "tags": {
+        "landuse": "residential",
+        "name": "Ajibode"
+      }
+    },
+    {
+      "id": "relation/3720556",
+      "name": "Akinyele",
+      "latitude": 7.4499675,
+      "longitude": 3.9168853,
+      "feature_type": "relation",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/3720556",
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Akinyele",
+        "source": "ehealthafrica.org",
+        "source:date": "2013",
+        "type": "boundary",
+        "wikidata": "Q4701091",
+        "wikipedia": "en:Akinyele"
+      }
+    },
+    {
+      "id": "way/274205500",
+      "name": "Akinyele Road",
+      "latitude": 7.4360862,
+      "longitude": 3.8979957,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205500",
+      "tags": {
+        "highway": "service",
+        "lanes": "2",
+        "name": "Akinyele Road"
+      }
+    },
+    {
+      "id": "way/274205501",
+      "name": "Alzayatti Crescent",
+      "latitude": 7.4518339,
+      "longitude": 3.8858855,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205501",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Alzayatti Crescent"
+      }
+    },
+    {
+      "id": "way/1228969141",
+      "name": "Amina Way",
+      "latitude": 7.4436893,
+      "longitude": 3.9062026,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1228969141",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Amina Way",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "way/261342190",
+      "name": "Amina Way",
+      "latitude": 7.4464718,
+      "longitude": 3.9039416,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/261342190",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Amina Way",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "way/164137572",
+      "name": "Appleton Road",
+      "latitude": 7.4407336,
+      "longitude": 3.8939215,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/164137572",
+      "tags": {
+        "highway": "residential",
+        "name": "Appleton Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274213312",
+      "name": "Appleton Road",
+      "latitude": 7.4440465,
+      "longitude": 3.8948511,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274213312",
+      "tags": {
+        "highway": "residential",
+        "name": "Appleton Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274213313",
+      "name": "Appleton Road",
+      "latitude": 7.4430972,
+      "longitude": 3.8940734,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274213313",
+      "tags": {
+        "bridge": "yes",
+        "highway": "residential",
+        "layer": "1",
+        "name": "Appleton Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274204321",
+      "name": "Atiba Road",
+      "latitude": 7.4519846,
+      "longitude": 3.902973,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204321",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "Atiba Road"
+      }
+    },
+    {
+      "id": "way/277491599",
+      "name": "Atiba Road",
+      "latitude": 7.4522491,
+      "longitude": 3.8991696,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491599",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Atiba Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/277491601",
+      "name": "Atiba Road",
+      "latitude": 7.4522161,
+      "longitude": 3.8991771,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491601",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Atiba Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274207393",
+      "name": "Awoniyi Road",
+      "latitude": 7.4543753,
+      "longitude": 3.8996699,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207393",
+      "tags": {
+        "highway": "residential",
+        "name": "Awoniyi Road"
+      }
+    },
+    {
+      "id": "way/97565271",
+      "name": "Barth Road",
+      "latitude": 7.4412685,
+      "longitude": 3.9030925,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565271",
+      "tags": {
+        "highway": "residential",
+        "name": "Barth Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565279",
+      "name": "Barth Road",
+      "latitude": 7.4385605,
+      "longitude": 3.8966569,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565279",
+      "tags": {
+        "highway": "residential",
+        "name": "Barth Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565301",
+      "name": "Barth Road",
+      "latitude": 7.4413051,
+      "longitude": 3.90314,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565301",
+      "tags": {
+        "highway": "residential",
+        "name": "Barth Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274205502",
+      "name": "Batuta Road",
+      "latitude": 7.4497285,
+      "longitude": 3.8880386,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205502",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Batuta Road"
+      }
+    },
+    {
+      "id": "way/274202683",
+      "name": "Benue Road",
+      "latitude": 7.4484568,
+      "longitude": 3.8953476,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274202683",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "Benue Road"
+      }
+    },
+    {
+      "id": "way/261342191",
+      "name": "Bini Road",
+      "latitude": 7.4466659,
+      "longitude": 3.9037961,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/261342191",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Bini Road",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "way/364506883",
+      "name": "Black Market",
+      "latitude": 7.4402739,
+      "longitude": 3.8984459,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506883",
+      "tags": {
+        "building": "yes",
+        "name": "Black Market",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "shop": "department_store",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364506884",
+      "name": "Black Market",
+      "latitude": 7.4403931,
+      "longitude": 3.8984103,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506884",
+      "tags": {
+        "building": "yes",
+        "name": "Black Market",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "shop": "department_store",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/274205503",
+      "name": "Carr Road",
+      "latitude": 7.4436221,
+      "longitude": 3.8873584,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205503",
+      "tags": {
+        "highway": "residential",
+        "name": "Carr Road"
+      }
+    },
+    {
+      "id": "way/274211581",
+      "name": "Carver Road",
+      "latitude": 7.445009,
+      "longitude": 3.8943846,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211581",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Carver Road"
+      }
+    },
+    {
+      "id": "way/274204322",
+      "name": "Chad Road",
+      "latitude": 7.4481019,
+      "longitude": 3.8948692,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204322",
+      "tags": {
+        "highway": "residential",
+        "name": "Chad Road"
+      }
+    },
+    {
+      "id": "way/274202686",
+      "name": "Chapel Road",
+      "latitude": 7.4495387,
+      "longitude": 3.8997556,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274202686",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Chapel Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274207394",
+      "name": "Chapel Road",
+      "latitude": 7.4493612,
+      "longitude": 3.8997412,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207394",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Chapel Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/277491598",
+      "name": "Chapel Road",
+      "latitude": 7.4520984,
+      "longitude": 3.8990955,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491598",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Chapel Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/277491600",
+      "name": "Chapel Road",
+      "latitude": 7.4520969,
+      "longitude": 3.8990383,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491600",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Chapel Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/583432569",
+      "name": "Chapel Road",
+      "latitude": 7.4453762,
+      "longitude": 3.9007419,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583432569",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Chapel Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/583432572",
+      "name": "Chapel Road",
+      "latitude": 7.4453381,
+      "longitude": 3.9008269,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583432572",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Chapel Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274204323",
+      "name": "Cross Road",
+      "latitude": 7.4473685,
+      "longitude": 3.894896,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204323",
+      "tags": {
+        "highway": "residential",
+        "name": "Cross Road"
+      }
+    },
+    {
+      "id": "way/274207396",
+      "name": "Crowther Lane",
+      "latitude": 7.4486322,
+      "longitude": 3.9051952,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207396",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Crowther Lane"
+      }
+    },
+    {
+      "id": "way/261342192",
+      "name": "Danfodio Road",
+      "latitude": 7.4476973,
+      "longitude": 3.9025441,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/261342192",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Danfodio Road",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "way/858868456",
+      "name": "Department of Geology",
+      "latitude": 7.4457833,
+      "longitude": 3.8931819,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/858868456",
+      "tags": {
+        "addr:city": "ibadan",
+        "addr:street": "Niger Road",
+        "building": "yes",
+        "building:levels": "3",
+        "name": "Department of Geology"
+      }
+    },
+    {
+      "id": "way/247383379",
+      "name": "Dina Road",
+      "latitude": 7.4546956,
+      "longitude": 3.8989196,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/247383379",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Dina Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274207397",
+      "name": "Dina Road",
+      "latitude": 7.4553907,
+      "longitude": 3.8989773,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207397",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Dina Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/277491593",
+      "name": "Dina Road",
+      "latitude": 7.4523615,
+      "longitude": 3.8990117,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491593",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Dina Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/277491597",
+      "name": "Dina Road",
+      "latitude": 7.4523655,
+      "longitude": 3.8990852,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491597",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Dina Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/1169779896",
+      "name": "Dyke Road",
+      "latitude": 7.4446307,
+      "longitude": 3.8994398,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1169779896",
+      "tags": {
+        "highway": "residential",
+        "name": "Dyke Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/1169779897",
+      "name": "Dyke Road",
+      "latitude": 7.4451576,
+      "longitude": 3.8982985,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1169779897",
+      "tags": {
+        "highway": "residential",
+        "name": "Dyke Road"
+      }
+    },
+    {
+      "id": "way/274202687",
+      "name": "Dyke Road",
+      "latitude": 7.4442702,
+      "longitude": 3.9006247,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274202687",
+      "tags": {
+        "highway": "residential",
+        "name": "Dyke Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/583394605",
+      "name": "Dyke Road",
+      "latitude": 7.4443069,
+      "longitude": 3.9005909,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583394605",
+      "tags": {
+        "highway": "residential",
+        "name": "Dyke Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565305",
+      "name": "Dyke Road",
+      "latitude": 7.4442522,
+      "longitude": 3.9003168,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565305",
+      "tags": {
+        "highway": "residential",
+        "name": "Dyke Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274211582",
+      "name": "Ebrohimie Road",
+      "latitude": 7.4410572,
+      "longitude": 3.9052321,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211582",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Ebrohimie Road"
+      }
+    },
+    {
+      "id": "way/163041285",
+      "name": "Ekwuno Road",
+      "latitude": 7.4437696,
+      "longitude": 3.8883947,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/163041285",
+      "tags": {
+        "highway": "residential",
+        "name": "Ekwuno Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565255",
+      "name": "El-Kanemi Road",
+      "latitude": 7.441575,
+      "longitude": 3.8992394,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565255",
+      "tags": {
+        "highway": "residential",
+        "name": "El-Kanemi Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565256",
+      "name": "El-Kanemi Road",
+      "latitude": 7.4414389,
+      "longitude": 3.9027756,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565256",
+      "tags": {
+        "highway": "residential",
+        "name": "El-Kanemi Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565258",
+      "name": "El-Kanemi Road",
+      "latitude": 7.4414986,
+      "longitude": 3.9027756,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565258",
+      "tags": {
+        "highway": "residential",
+        "name": "El-Kanemi Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565284",
+      "name": "El-Kanemi Road",
+      "latitude": 7.4416418,
+      "longitude": 3.8992207,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565284",
+      "tags": {
+        "highway": "residential",
+        "name": "El-Kanemi Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565295",
+      "name": "El-Kanemi Road",
+      "latitude": 7.4416767,
+      "longitude": 3.9005978,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565295",
+      "tags": {
+        "highway": "residential",
+        "name": "El-Kanemi Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274205504",
+      "name": "Elliot Close",
+      "latitude": 7.4529307,
+      "longitude": 3.8859714,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205504",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Elliot Close"
+      }
+    },
+    {
+      "id": "way/274202688",
+      "name": "Emotan Lane",
+      "latitude": 7.4465339,
+      "longitude": 3.8995956,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274202688",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Emotan Lane",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274202689",
+      "name": "Emotan Lane",
+      "latitude": 7.4469353,
+      "longitude": 3.9013067,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274202689",
+      "tags": {
+        "highway": "residential",
+        "name": "Emotan Lane",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/583432567",
+      "name": "Emotan Lane",
+      "latitude": 7.4466349,
+      "longitude": 3.9005579,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583432567",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Emotan Lane",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/583432570",
+      "name": "Emotan Lane",
+      "latitude": 7.4467489,
+      "longitude": 3.9008448,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583432570",
+      "tags": {
+        "highway": "residential",
+        "name": "Emotan Lane",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/991412813",
+      "name": "Emotan Lane",
+      "latitude": 7.4456004,
+      "longitude": 3.8977749,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/991412813",
+      "tags": {
+        "highway": "residential",
+        "name": "Emotan Lane",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274205505",
+      "name": "Eyo Road",
+      "latitude": 7.4456001,
+      "longitude": 3.8919279,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205505",
+      "tags": {
+        "highway": "residential",
+        "name": "Eyo Road"
+      }
+    },
+    {
+      "id": "way/362951235",
+      "name": "Faculty of Art's LLT",
+      "latitude": 7.4469516,
+      "longitude": 3.8972218,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362951235",
+      "tags": {
+        "building": "yes",
+        "name": "Faculty of Art's LLT",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "relation/5399416",
+      "name": "Faculty of Arts",
+      "latitude": 7.4460146,
+      "longitude": 3.8969778,
+      "feature_type": "relation",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/5399416",
+      "tags": {
+        "building": "yes",
+        "name": "Faculty of Arts",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "id": "way/362949625",
+      "name": "Faculty of Education",
+      "latitude": 7.4479515,
+      "longitude": 3.8953604,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949625",
+      "tags": {
+        "amenity": "university",
+        "name": "Faculty of Education",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362949626",
+      "name": "Faculty of Education",
+      "latitude": 7.4481883,
+      "longitude": 3.8953845,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949626",
+      "tags": {
+        "amenity": "university",
+        "name": "Faculty of Education",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362949627",
+      "name": "Faculty of Education",
+      "latitude": 7.447806,
+      "longitude": 3.8952176,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949627",
+      "tags": {
+        "amenity": "university",
+        "name": "Faculty of Education",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362949628",
+      "name": "Faculty of Education",
+      "latitude": 7.4481108,
+      "longitude": 3.8950993,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949628",
+      "tags": {
+        "amenity": "university",
+        "name": "Faculty of Education",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362949630",
+      "name": "Faculty of Education",
+      "latitude": 7.4475775,
+      "longitude": 3.8952349,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949630",
+      "tags": {
+        "amenity": "university",
+        "name": "Faculty of Education",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/758353373",
+      "name": "Faculty of Education",
+      "latitude": 7.4479449,
+      "longitude": 3.8953573,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/758353373",
+      "tags": {
+        "code": "2081",
+        "fclass": "university",
+        "name": "Faculty of Education",
+        "osm_id": "362949625"
+      }
+    },
+    {
+      "id": "way/758353374",
+      "name": "Faculty of Education",
+      "latitude": 7.4476416,
+      "longitude": 3.8956266,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/758353374",
+      "tags": {
+        "building": "yes",
+        "code": "2081",
+        "fclass": "university",
+        "name": "Faculty of Education",
+        "osm_id": "362949624"
+      }
+    },
+    {
+      "id": "way/274204324",
+      "name": "Farm Road",
+      "latitude": 7.4521462,
+      "longitude": 3.8960981,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204324",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "Farm Road"
+      }
+    },
+    {
+      "id": "way/277491595",
+      "name": "Farm Road",
+      "latitude": 7.4522235,
+      "longitude": 3.8989341,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491595",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Farm Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/277491596",
+      "name": "Farm Road",
+      "latitude": 7.4521848,
+      "longitude": 3.8989403,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/277491596",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Farm Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/583410697",
+      "name": "Farm Road",
+      "latitude": 7.452097,
+      "longitude": 3.8934678,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583410697",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "Farm Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/583410698",
+      "name": "Farm Road",
+      "latitude": 7.4520593,
+      "longitude": 3.8934633,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583410698",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Farm Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/362949622",
+      "name": "Fculty of Nursing",
+      "latitude": 7.4484282,
+      "longitude": 3.8979238,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949622",
+      "tags": {
+        "amenity": "university",
+        "name": "Fculty of Nursing",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/362949623",
+      "name": "Fculty of Nursing",
+      "latitude": 7.4484553,
+      "longitude": 3.8979364,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362949623",
+      "tags": {
+        "amenity": "university",
+        "name": "Fculty of Nursing",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/758353308",
+      "name": "Forest Reserve",
+      "latitude": 7.4574617,
+      "longitude": 3.9041491,
+      "feature_type": "way",
+      "category": "park",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/758353308",
+      "tags": {
+        "code": "2204",
+        "leisure": "park",
+        "name": "Forest Reserve"
+      }
+    },
+    {
+      "id": "way/362951237",
+      "name": "Generator House",
+      "latitude": 7.4473033,
+      "longitude": 3.896102,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362951237",
+      "tags": {
+        "building": "yes",
+        "name": "Generator House",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364487882",
+      "name": "Generator House",
+      "latitude": 7.445059,
+      "longitude": 3.8997002,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487882",
+      "tags": {
+        "building": "yes",
+        "name": "Generator House",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/97565275",
+      "name": "Gongola Road",
+      "latitude": 7.4400371,
+      "longitude": 3.8887237,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565275",
+      "tags": {
+        "highway": "residential",
+        "name": "Gongola Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/362847567",
+      "name": "Handball's Court",
+      "latitude": 7.446263,
+      "longitude": 3.8952144,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847567",
+      "tags": {
+        "building": "yes",
+        "leisure": "pitch",
+        "name": "Handball's Court",
+        "operator": "University",
+        "source": "bing",
+        "sport": "volleyball"
+      }
+    },
+    {
+      "id": "relation/3720562",
+      "name": "Ibadan North",
+      "latitude": 7.4529629,
+      "longitude": 3.9009573,
+      "feature_type": "relation",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/3720562",
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Ibadan North",
+        "source": "ehealthafrica.org",
+        "source:date": "2013",
+        "type": "boundary",
+        "wikidata": "Q5983592",
+        "wikipedia": "en:Ibadan North"
+      }
+    },
+    {
+      "id": "relation/3720568",
+      "name": "Ido",
+      "latitude": 7.4559583,
+      "longitude": 3.8850293,
+      "feature_type": "relation",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/3720568",
+      "tags": {
+        "admin_level": "6",
+        "boundary": "administrative",
+        "name": "Ido",
+        "source": "ehealthafrica.org",
+        "source:date": "2013",
+        "type": "boundary",
+        "wikidata": "Q3331530",
+        "wikipedia": "en:Ido, Nigeria"
+      }
+    },
+    {
+      "id": "way/274211583",
+      "name": "Ijoma Place",
+      "latitude": 7.4449955,
+      "longitude": 3.8897603,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211583",
+      "tags": {
+        "highway": "residential",
+        "name": "Ijoma Place"
+      }
+    },
+    {
+      "id": "way/274211584",
+      "name": "Ijoma Place",
+      "latitude": 7.4450502,
+      "longitude": 3.8901485,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211584",
+      "tags": {
+        "highway": "residential",
+        "name": "Ijoma Place"
+      }
+    },
+    {
+      "id": "way/274211585",
+      "name": "Ijoma Place",
+      "latitude": 7.4449955,
+      "longitude": 3.8899031,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211585",
+      "tags": {
+        "highway": "residential",
+        "name": "Ijoma Place"
+      }
+    },
+    {
+      "id": "way/274211586",
+      "name": "Ijoma Place",
+      "latitude": 7.4449891,
+      "longitude": 3.8908004,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211586",
+      "tags": {
+        "highway": "residential",
+        "name": "Ijoma Place"
+      }
+    },
+    {
+      "id": "way/274211587",
+      "name": "Ijoma Place",
+      "latitude": 7.44501,
+      "longitude": 3.8907313,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211587",
+      "tags": {
+        "highway": "residential",
+        "name": "Ijoma Place"
+      }
+    },
+    {
+      "id": "way/163041278",
+      "name": "Ijoma Road",
+      "latitude": 7.4447738,
+      "longitude": 3.8887726,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/163041278",
+      "tags": {
+        "highway": "residential",
+        "name": "Ijoma Road"
+      }
+    },
+    {
+      "id": "way/163041286",
+      "name": "Imo Street",
+      "latitude": 7.4394814,
+      "longitude": 3.8875182,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/163041286",
+      "tags": {
+        "highway": "residential",
+        "name": "Imo Street",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/284600085",
+      "name": "Independence Hall",
+      "latitude": 7.4388923,
+      "longitude": 3.8967474,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/284600085",
+      "tags": {
+        "building": "yes",
+        "name": "Independence Hall",
+        "source": "Bing"
+      }
+    },
+    {
+      "id": "way/364506885",
+      "name": "Independence Hall",
+      "latitude": 7.4390006,
+      "longitude": 3.8975007,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506885",
+      "tags": {
+        "building": "yes",
+        "name": "Independence Hall",
+        "source": "Bing"
+      }
+    },
+    {
+      "id": "way/364506886",
+      "name": "Independence Hall",
+      "latitude": 7.4394417,
+      "longitude": 3.897814,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506886",
+      "tags": {
+        "building": "yes",
+        "name": "Independence Hall",
+        "source": "Bing"
+      }
+    },
+    {
+      "id": "way/364506887",
+      "name": "Independence Hall",
+      "latitude": 7.4395118,
+      "longitude": 3.8969636,
+      "feature_type": "way",
+      "category": "food_court",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506887",
+      "tags": {
+        "amenity": "food_court",
+        "name": "Independence Hall",
+        "opening_hours": "24/7",
+        "operator": "Independence Hall",
+        "smoking": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/364506888",
+      "name": "Independence Hall",
+      "latitude": 7.4392155,
+      "longitude": 3.8965288,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506888",
+      "tags": {
+        "building": "yes",
+        "name": "Independence Hall",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364506889",
+      "name": "Independence Hall",
+      "latitude": 7.439838,
+      "longitude": 3.8973716,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506889",
+      "tags": {
+        "building": "yes",
+        "name": "Independence Hall",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364506890",
+      "name": "Independence Hall",
+      "latitude": 7.4394351,
+      "longitude": 3.8965766,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506890",
+      "tags": {
+        "building": "yes",
+        "name": "Independence Hall",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/911285088",
+      "name": "Institute of African Studies and IFRA Nigeria",
+      "latitude": 7.4477161,
+      "longitude": 3.8940147,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/911285088",
+      "tags": {
+        "addr:city": "ibadan",
+        "building": "yes",
+        "building:levels": "2",
+        "description": "https://ias-ibadan.org/ https://ifra-nigeria.org/",
+        "name": "Institute of African Studies and IFRA Nigeria"
+      }
+    },
+    {
+      "id": "way/274207404",
+      "name": "Irekhe Road",
+      "latitude": 7.4534744,
+      "longitude": 3.8995708,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207404",
+      "tags": {
+        "highway": "residential",
+        "name": "Irekhe Road"
+      }
+    },
+    {
+      "id": "way/97565293",
+      "name": "Jaja Avenue",
+      "latitude": 7.4429426,
+      "longitude": 3.9007452,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565293",
+      "tags": {
+        "highway": "residential",
+        "name": "Jaja Avenue",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/759453522",
+      "name": "Jamoje",
+      "latitude": 7.4599008,
+      "longitude": 3.8915247,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/759453522",
+      "tags": {
+        "name": "Jamoje",
+        "waterway": "stream"
+      }
+    },
+    {
+      "id": "way/274204325",
+      "name": "Kashim Ibrahim Road",
+      "latitude": 7.4503255,
+      "longitude": 3.8960861,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204325",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Kashim Ibrahim Road"
+      }
+    },
+    {
+      "id": "way/583410700",
+      "name": "Kashim Ibrahim Road",
+      "latitude": 7.4519621,
+      "longitude": 3.8935972,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583410700",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Kashim Ibrahim Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/583410701",
+      "name": "Kashim Ibrahim Road",
+      "latitude": 7.4519485,
+      "longitude": 3.8934679,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583410701",
+      "tags": {
+        "highway": "residential",
+        "name": "Kashim Ibrahim Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/362847568",
+      "name": "Kenneth Dike",
+      "latitude": 7.4467184,
+      "longitude": 3.8961037,
+      "feature_type": "way",
+      "category": "library",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847568",
+      "tags": {
+        "amenity": "library",
+        "building": "yes",
+        "name": "Kenneth Dike",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/274205506",
+      "name": "Kurunmi Road",
+      "latitude": 7.4473602,
+      "longitude": 3.8875483,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205506",
+      "tags": {
+        "highway": "residential",
+        "name": "Kurunmi Road"
+      }
+    },
+    {
+      "id": "way/274204326",
+      "name": "Kwara Road",
+      "latitude": 7.447269,
+      "longitude": 3.8932704,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204326",
+      "tags": {
+        "highway": "residential",
+        "name": "Kwara Road"
+      }
+    },
+    {
+      "id": "way/274207398",
+      "name": "Ladipo Lane",
+      "latitude": 7.452824,
+      "longitude": 3.9011519,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207398",
+      "tags": {
+        "highway": "residential",
+        "name": "Ladipo Lane"
+      }
+    },
+    {
+      "id": "way/97565277",
+      "name": "Lander Road",
+      "latitude": 7.441675,
+      "longitude": 3.9030111,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565277",
+      "tags": {
+        "highway": "residential",
+        "name": "Lander Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565283",
+      "name": "Lander Road",
+      "latitude": 7.4416697,
+      "longitude": 3.903077,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565283",
+      "tags": {
+        "highway": "residential",
+        "name": "Lander Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565302",
+      "name": "Lander Road",
+      "latitude": 7.4425634,
+      "longitude": 3.9032659,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565302",
+      "tags": {
+        "highway": "residential",
+        "name": "Lander Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274211589",
+      "name": "Liard Place",
+      "latitude": 7.4498604,
+      "longitude": 3.8866007,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211589",
+      "tags": {
+        "highway": "residential",
+        "name": "Liard Place"
+      }
+    },
+    {
+      "id": "way/274211591",
+      "name": "Liard Place",
+      "latitude": 7.4493788,
+      "longitude": 3.8862553,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211591",
+      "tags": {
+        "highway": "residential",
+        "name": "Liard Place"
+      }
+    },
+    {
+      "id": "way/274205510",
+      "name": "Liard Road",
+      "latitude": 7.4488974,
+      "longitude": 3.8866736,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205510",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "Liard Road"
+      }
+    },
+    {
+      "id": "way/274205508",
+      "name": "Lishabi Crescent",
+      "latitude": 7.4476797,
+      "longitude": 3.8918107,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205508",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Lishabi Crescent"
+      }
+    },
+    {
+      "id": "way/163041283",
+      "name": "Macualay Road",
+      "latitude": 7.4430075,
+      "longitude": 3.8878821,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/163041283",
+      "tags": {
+        "highway": "residential",
+        "name": "Macualay Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274211592",
+      "name": "Madaki Road",
+      "latitude": 7.4463336,
+      "longitude": 3.8951004,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211592",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Madaki Road"
+      }
+    },
+    {
+      "id": "way/97565272",
+      "name": "Manuwa Drive",
+      "latitude": 7.4415824,
+      "longitude": 3.8988196,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565272",
+      "tags": {
+        "highway": "residential",
+        "name": "Manuwa Drive",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565278",
+      "name": "Manuwa Drive",
+      "latitude": 7.4416383,
+      "longitude": 3.8988365,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565278",
+      "tags": {
+        "highway": "residential",
+        "name": "Manuwa Drive",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565287",
+      "name": "Manuwa Drive",
+      "latitude": 7.4425844,
+      "longitude": 3.8973074,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565287",
+      "tags": {
+        "highway": "residential",
+        "name": "Manuwa Drive",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/989379186",
+      "name": "Maryam's Hostel",
+      "latitude": 7.4393188,
+      "longitude": 3.9045206,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/989379186",
+      "tags": {
+        "building": "yes",
+        "building:levels": "2",
+        "name": "Maryam's Hostel"
+      }
+    },
+    {
+      "id": "way/1293295258",
+      "name": "Masaba Road",
+      "latitude": 7.4518149,
+      "longitude": 3.8929076,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1293295258",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "layer": "1",
+        "name": "Masaba Road"
+      }
+    },
+    {
+      "id": "way/1293295259",
+      "name": "Masaba Road",
+      "latitude": 7.4515798,
+      "longitude": 3.8926795,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/1293295259",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "layer": "1",
+        "man_made": "bridge",
+        "name": "Masaba Road"
+      }
+    },
+    {
+      "id": "way/274204327",
+      "name": "Masaba Road",
+      "latitude": 7.4507154,
+      "longitude": 3.8924103,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204327",
+      "tags": {
+        "highway": "tertiary",
+        "lanes": "2",
+        "name": "Masaba Road"
+      }
+    },
+    {
+      "id": "node/3685315899",
+      "name": "Mellamby's Foodcourt",
+      "latitude": 7.4455596,
+      "longitude": 3.9001255,
+      "feature_type": "node",
+      "category": "food_court",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/3685315899",
+      "tags": {
+        "amenity": "food_court",
+        "internet_access": "no",
+        "name": "Mellamby's Foodcourt",
+        "opening_hours": "24/7",
+        "operator": "Mellanby",
+        "smoking": "no",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/364487884",
+      "name": "Mellamby's Reading Room",
+      "latitude": 7.4458048,
+      "longitude": 3.899346,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487884",
+      "tags": {
+        "building": "yes",
+        "name": "Mellamby's Reading Room",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364487892",
+      "name": "Mellanby's Basket Ball Court",
+      "latitude": 7.4453109,
+      "longitude": 3.9002944,
+      "feature_type": "way",
+      "category": "sports_centre",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487892",
+      "tags": {
+        "leisure": "sports_centre",
+        "name": "Mellanby's Basket Ball Court",
+        "source": "bing",
+        "sport": "basketball"
+      }
+    },
+    {
+      "id": "way/163041280",
+      "name": "Niger Road",
+      "latitude": 7.4461808,
+      "longitude": 3.8930115,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/163041280",
+      "tags": {
+        "highway": "residential",
+        "name": "Niger Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/364506891",
+      "name": "Nnamdi Azizkwe Hall",
+      "latitude": 7.4406261,
+      "longitude": 3.8970532,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506891",
+      "tags": {
+        "name": "Nnamdi Azizkwe Hall",
+        "source": "Bing"
+      }
+    },
+    {
+      "id": "way/364506892",
+      "name": "Nnamdi Azizkwe Hall",
+      "latitude": 7.4410263,
+      "longitude": 3.897348,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506892",
+      "tags": {
+        "name": "Nnamdi Azizkwe Hall",
+        "source": "Bing"
+      }
+    },
+    {
+      "id": "way/364506893",
+      "name": "Nnamdi Azizkwe Hall",
+      "latitude": 7.4404898,
+      "longitude": 3.8962602,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506893",
+      "tags": {
+        "name": "Nnamdi Azizkwe Hall",
+        "source": "Bing"
+      }
+    },
+    {
+      "id": "way/364506894",
+      "name": "Nnamdi Azizkwe Hall",
+      "latitude": 7.4414725,
+      "longitude": 3.8969164,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506894",
+      "tags": {
+        "name": "Nnamdi Azizkwe Hall",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364506895",
+      "name": "Nnamdi Azizkwe Hall",
+      "latitude": 7.4403354,
+      "longitude": 3.8971629,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506895",
+      "tags": {
+        "name": "Nnamdi Azizkwe Hall",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364506897",
+      "name": "Nnamdi Azizkwe Hall",
+      "latitude": 7.4408574,
+      "longitude": 3.896287,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506897",
+      "tags": {
+        "name": "Nnamdi Azizkwe Hall",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364506898",
+      "name": "Nnmadi Azizkwe Hall's Food Court",
+      "latitude": 7.4411383,
+      "longitude": 3.8963491,
+      "feature_type": "way",
+      "category": "food_court",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364506898",
+      "tags": {
+        "amenity": "food_court",
+        "building": "yes",
+        "name": "Nnmadi Azizkwe Hall's Food Court",
+        "opening_hours": "24/7",
+        "operator": "Nnmadi Azizkwe Hall",
+        "smoking": "no",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/274213314",
+      "name": "Oba",
+      "latitude": 7.4417894,
+      "longitude": 3.8977193,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274213314",
+      "tags": {
+        "name": "Oba",
+        "waterway": "stream"
+      }
+    },
+    {
+      "id": "way/274213315",
+      "name": "Oba",
+      "latitude": 7.442015,
+      "longitude": 3.8861758,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274213315",
+      "tags": {
+        "name": "Oba",
+        "waterway": "stream"
+      }
+    },
+    {
+      "id": "way/759890236",
+      "name": "Oba",
+      "latitude": 7.4410138,
+      "longitude": 3.9038629,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/759890236",
+      "tags": {
+        "name": "Oba",
+        "waterway": "stream"
+      }
+    },
+    {
+      "id": "way/995522739",
+      "name": "Oba",
+      "latitude": 7.440585,
+      "longitude": 3.9029346,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/995522739",
+      "tags": {
+        "name": "Oba",
+        "waterway": "stream"
+      }
+    },
+    {
+      "id": "way/995522740",
+      "name": "Oba",
+      "latitude": 7.4408546,
+      "longitude": 3.9032842,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/995522740",
+      "tags": {
+        "layer": "-1",
+        "name": "Oba",
+        "tunnel": "culvert",
+        "waterway": "stream"
+      }
+    },
+    {
+      "id": "way/97565291",
+      "name": "Oba Dam",
+      "latitude": 7.4426304,
+      "longitude": 3.8894965,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565291",
+      "tags": {
+        "alt_name": "Awba Dam",
+        "name": "Oba Dam",
+        "natural": "water",
+        "source": "Yahoo",
+        "water": "reservoir"
+      }
+    },
+    {
+      "id": "way/261342193",
+      "name": "Obong Road",
+      "latitude": 7.4447202,
+      "longitude": 3.9027131,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/261342193",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Obong Road",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "way/583432565",
+      "name": "Obong Road",
+      "latitude": 7.443748,
+      "longitude": 3.9022823,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583432565",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Obong Road",
+        "surface": "paved"
+      }
+    },
+    {
+      "id": "way/274207400",
+      "name": "Odeziaku Lane",
+      "latitude": 7.4500735,
+      "longitude": 3.902287,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207400",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Odeziaku Lane"
+      }
+    },
+    {
+      "id": "way/583441038",
+      "name": "Odeziaku Lane",
+      "latitude": 7.4509522,
+      "longitude": 3.9029392,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583441038",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Odeziaku Lane",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/583441041",
+      "name": "Odeziaku Lane",
+      "latitude": 7.4508948,
+      "longitude": 3.9029966,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583441041",
+      "tags": {
+        "highway": "residential",
+        "name": "Odeziaku Lane",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/230621908",
+      "name": "Oduduwa Road",
+      "latitude": 7.4427323,
+      "longitude": 3.9041309,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/230621908",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Oduduwa Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97565307",
+      "name": "Oduduwa Road",
+      "latitude": 7.4421561,
+      "longitude": 3.9046098,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565307",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Oduduwa Road",
+        "oneway": "yes",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274207401",
+      "name": "Olubi Road",
+      "latitude": 7.4517062,
+      "longitude": 3.9032673,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207401",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Olubi Road"
+      }
+    },
+    {
+      "id": "way/583441030",
+      "name": "Olubi Road",
+      "latitude": 7.4511831,
+      "longitude": 3.9032148,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583441030",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Olubi Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/583441035",
+      "name": "Olubi Road",
+      "latitude": 7.4511921,
+      "longitude": 3.9031534,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583441035",
+      "tags": {
+        "highway": "residential",
+        "name": "Olubi Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/585265536",
+      "name": "Olubi Road",
+      "latitude": 7.4519113,
+      "longitude": 3.9033567,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/585265536",
+      "tags": {
+        "highway": "residential",
+        "name": "Olubi Road"
+      }
+    },
+    {
+      "id": "way/274207402",
+      "name": "Oluyole Road",
+      "latitude": 7.45089,
+      "longitude": 3.9039742,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274207402",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Oluyole Road"
+      }
+    },
+    {
+      "id": "way/583441025",
+      "name": "Oluyole Road",
+      "latitude": 7.4509194,
+      "longitude": 3.9033431,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583441025",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Oluyole Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "way/583441028",
+      "name": "Oluyole Road",
+      "latitude": 7.450982,
+      "longitude": 3.9033624,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/583441028",
+      "tags": {
+        "highway": "residential",
+        "name": "Oluyole Road",
+        "oneway": "yes"
+      }
+    },
+    {
+      "id": "relation/11384444",
+      "name": "Ona",
+      "latitude": 7.4570062,
+      "longitude": 3.8903302,
+      "feature_type": "relation",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/11384444",
+      "tags": {
+        "destination": "Aye River",
+        "name": "Ona",
+        "type": "waterway",
+        "waterway": "river"
+      }
+    },
+    {
+      "id": "way/567184084",
+      "name": "Ona",
+      "latitude": 7.4602108,
+      "longitude": 3.8981526,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/567184084",
+      "tags": {
+        "name": "Ona",
+        "waterway": "river"
+      }
+    },
+    {
+      "id": "way/567184085",
+      "name": "Ona",
+      "latitude": 7.4554039,
+      "longitude": 3.886419,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/567184085",
+      "tags": {
+        "name": "Ona",
+        "waterway": "river"
+      }
+    },
+    {
+      "id": "way/567184082",
+      "name": "Orogun",
+      "latitude": 7.4586874,
+      "longitude": 3.905359,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/567184082",
+      "tags": {
+        "name": "Orogun",
+        "waterway": "river"
+      }
+    },
+    {
+      "id": "way/759446946",
+      "name": "Orogun",
+      "latitude": 7.4561273,
+      "longitude": 3.9064768,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/759446946",
+      "tags": {
+        "name": "Orogun",
+        "source": "Yahoo",
+        "waterway": "river"
+      }
+    },
+    {
+      "id": "way/364487898",
+      "name": "Park",
+      "latitude": 7.4450078,
+      "longitude": 3.8995129,
+      "feature_type": "way",
+      "category": "theme_park",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487898",
+      "tags": {
+        "name": "Park",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "tourism": "theme_park"
+      }
+    },
+    {
+      "id": "way/97565309",
+      "name": "Park Lane",
+      "latitude": 7.4435991,
+      "longitude": 3.8996465,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97565309",
+      "tags": {
+        "highway": "residential",
+        "name": "Park Lane",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/364487894",
+      "name": "Park's stage",
+      "latitude": 7.4447959,
+      "longitude": 3.8997142,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487894",
+      "tags": {
+        "building": "yes",
+        "name": "Park's stage",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362847569",
+      "name": "Pavillion",
+      "latitude": 7.4454394,
+      "longitude": 3.897175,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847569",
+      "tags": {
+        "building": "yes",
+        "name": "Pavillion",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362847570",
+      "name": "Pavillion",
+      "latitude": 7.4458048,
+      "longitude": 3.8949549,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847570",
+      "tags": {
+        "building": "yes",
+        "name": "Pavillion",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362847571",
+      "name": "Pavillion",
+      "latitude": 7.4451346,
+      "longitude": 3.8970644,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847571",
+      "tags": {
+        "building": "yes",
+        "name": "Pavillion",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/163041282",
+      "name": "Pepple Road",
+      "latitude": 7.4465604,
+      "longitude": 3.8885618,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/163041282",
+      "tags": {
+        "highway": "residential",
+        "name": "Pepple Road",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/274205509",
+      "name": "Phillipson Road",
+      "latitude": 7.4507179,
+      "longitude": 3.8859518,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205509",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Phillipson Road"
+      }
+    },
+    {
+      "id": "way/274211593",
+      "name": "Plateau Place",
+      "latitude": 7.4405155,
+      "longitude": 3.8923628,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211593",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Plateau Place"
+      }
+    },
+    {
+      "id": "way/274204328",
+      "name": "Sankore Avenue",
+      "latitude": 7.4490377,
+      "longitude": 3.8896734,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204328",
+      "tags": {
+        "highway": "tertiary",
+        "name": "Sankore Avenue"
+      }
+    },
+    {
+      "id": "way/997335824",
+      "name": "Sankore Avenue",
+      "latitude": 7.4486101,
+      "longitude": 3.8926684,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/997335824",
+      "tags": {
+        "highway": "residential",
+        "name": "Sankore Avenue"
+      }
+    },
+    {
+      "id": "way/274204329",
+      "name": "Sapara Road",
+      "latitude": 7.4485376,
+      "longitude": 3.8967556,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274204329",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Sapara Road"
+      }
+    },
+    {
+      "id": "way/274205511",
+      "name": "Saunders Road",
+      "latitude": 7.4503265,
+      "longitude": 3.888691,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274205511",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Saunders Road"
+      }
+    },
+    {
+      "id": "way/362847574",
+      "name": "SLT",
+      "latitude": 7.4460326,
+      "longitude": 3.8970338,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847574",
+      "tags": {
+        "name": "SLT",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/97622440",
+      "name": "Squash's Court",
+      "latitude": 7.444432,
+      "longitude": 3.8974482,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622440",
+      "tags": {
+        "building": "yes",
+        "leisure": "sports_centre",
+        "name": "Squash's Court",
+        "source": "bing",
+        "sport": "Squash"
+      }
+    },
+    {
+      "id": "relation/5399579",
+      "name": "Student Union Building",
+      "latitude": 7.4442944,
+      "longitude": 3.8984778,
+      "feature_type": "relation",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/5399579",
+      "tags": {
+        "amenity": "university",
+        "building": "yes",
+        "name": "Student Union Building",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "id": "way/97622322",
+      "name": "Student Union Building",
+      "latitude": 7.4444656,
+      "longitude": 3.8983547,
+      "feature_type": "way",
+      "category": "social_facility",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622322",
+      "tags": {
+        "amenity": "social_facility",
+        "building": "yes",
+        "name": "Student Union Building",
+        "social_facility": "group_home",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/362967183",
+      "name": "Students Affairs",
+      "latitude": 7.4445063,
+      "longitude": 3.8990223,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362967183",
+      "tags": {
+        "amenity": "university",
+        "name": "Students Affairs",
+        "opening_hours": "Mo-Fr 08:00-05:00",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362967184",
+      "name": "Students Affairs",
+      "latitude": 7.4443358,
+      "longitude": 3.8989639,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362967184",
+      "tags": {
+        "amenity": "university",
+        "name": "Students Affairs",
+        "opening_hours": "Mo-Fr 08:00-05:00",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/97622306",
+      "name": "Students Affairs",
+      "latitude": 7.4443329,
+      "longitude": 3.8992893,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622306",
+      "tags": {
+        "amenity": "university",
+        "name": "Students Affairs",
+        "opening_hours": "Mo-Fr 08:00-05:00",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/97622375",
+      "name": "Students Affairs",
+      "latitude": 7.4441194,
+      "longitude": 3.8991036,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622375",
+      "tags": {
+        "amenity": "university",
+        "name": "Students Affairs",
+        "opening_hours": "Mo-Fr 08:00-05:00",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/97622463",
+      "name": "Students Affairs",
+      "latitude": 7.4445293,
+      "longitude": 3.8989107,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622463",
+      "tags": {
+        "amenity": "university",
+        "name": "Students Affairs",
+        "opening_hours": "Mo-Fr 08:00-05:00",
+        "operator": "University",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/97622517",
+      "name": "Swimming Pool's Pavillion",
+      "latitude": 7.4448233,
+      "longitude": 3.8977969,
+      "feature_type": "way",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622517",
+      "tags": {
+        "amenity": "university",
+        "building": "yes",
+        "name": "Swimming Pool's Pavillion",
+        "source": "Yahoo"
+      }
+    },
+    {
+      "id": "way/97622270",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4423908,
+      "longitude": 3.8977921,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622270",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97622308",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4425891,
+      "longitude": 3.8979606,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622308",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97622334",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4424459,
+      "longitude": 3.8981512,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622334",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97622482",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4424108,
+      "longitude": 3.8972261,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622482",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97622572",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4428858,
+      "longitude": 3.8974656,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622572",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97622584",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4419529,
+      "longitude": 3.8984766,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622584",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97622614",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4426488,
+      "longitude": 3.8973477,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622614",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/97629326",
+      "name": "Tafabalewa Hall",
+      "latitude": 7.4421615,
+      "longitude": 3.8978868,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97629326",
+      "tags": {
+        "name": "Tafabalewa Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "Yahoo",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/274211594",
+      "name": "Technology Drive",
+      "latitude": 7.4417932,
+      "longitude": 3.8933066,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/274211594",
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "Technology Drive"
+      }
+    },
+    {
+      "id": "way/364487934",
+      "name": "Tedder Hall",
+      "latitude": 7.4452846,
+      "longitude": 3.8989675,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487934",
+      "tags": {
+        "building": "yes",
+        "name": "Tedder Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/364487945",
+      "name": "Tedder Hall",
+      "latitude": 7.4456134,
+      "longitude": 3.8986381,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487945",
+      "tags": {
+        "building": "yes",
+        "name": "Tedder Hall",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "node/3685325136",
+      "name": "Tedder's Foodcourt",
+      "latitude": 7.4456153,
+      "longitude": 3.8988405,
+      "feature_type": "node",
+      "category": "food_court",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/3685325136",
+      "tags": {
+        "amenity": "food_court",
+        "internet_access": "no",
+        "name": "Tedder's Foodcourt",
+        "opening_hours": "24/7",
+        "operator": "Teddr HAll",
+        "smoking": "no",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/364487900",
+      "name": "Tenchard Hall",
+      "latitude": 7.4449467,
+      "longitude": 3.8999175,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487900",
+      "tags": {
+        "building": "yes",
+        "name": "Tenchard Hall",
+        "opening_hours": "Mo-Su 08:00-10:00",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/362847575",
+      "name": "Training Areana",
+      "latitude": 7.4448673,
+      "longitude": 3.8969322,
+      "feature_type": "way",
+      "category": "pitch",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847575",
+      "tags": {
+        "leisure": "pitch",
+        "name": "Training Areana",
+        "source": "bing",
+        "sport": "tennis"
+      }
+    },
+    {
+      "id": "node/2883203615",
+      "name": "U&I",
+      "latitude": 7.438318,
+      "longitude": 3.8947412,
+      "feature_type": "node",
+      "category": "restaurant",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2883203615",
+      "tags": {
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "internet_access": "no",
+        "name": "U&I",
+        "operator": "University of Ibadan",
+        "smoking": "no"
+      }
+    },
+    {
+      "id": "way/758353311",
+      "name": "UI Botanical Gardens",
+      "latitude": 7.4578652,
+      "longitude": 3.896039,
+      "feature_type": "way",
+      "category": "park",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/758353311",
+      "tags": {
+        "code": "2204",
+        "leisure": "park",
+        "name": "UI Botanical Gardens"
+      }
+    },
+    {
+      "id": "node/2627679698",
+      "name": "UI Campus Cab Terminus",
+      "latitude": 7.4416532,
+      "longitude": 3.906251,
+      "feature_type": "node",
+      "category": "taxi",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2627679698",
+      "tags": {
+        "amenity": "taxi",
+        "name": "UI Campus Cab Terminus"
+      }
+    },
+    {
+      "id": "way/362968882",
+      "name": "UI Chapel",
+      "latitude": 7.4479028,
+      "longitude": 3.8993,
+      "feature_type": "way",
+      "category": "place_of_worship",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362968882",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "denomination": "pentecostal",
+        "name": "UI Chapel",
+        "opening_hours": "24/7",
+        "religion": "christian",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "way/364487904",
+      "name": "UI Student's farm",
+      "latitude": 7.4485175,
+      "longitude": 3.8960605,
+      "feature_type": "way",
+      "category": "farmland",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487904",
+      "tags": {
+        "agricultural": "farm",
+        "landuse": "farmland",
+        "name": "UI Student's farm"
+      }
+    },
+    {
+      "id": "way/362968884",
+      "name": "UI's Mosque",
+      "latitude": 7.4473404,
+      "longitude": 3.8988141,
+      "feature_type": "way",
+      "category": "place_of_worship",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362968884",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "UI's Mosque",
+        "opening_hours": "24/7",
+        "religion": "muslim",
+        "service_times": "week 1-53/2 Fr 09:00-12:00; week 2-52/2 We 09:00-12:00",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362968885",
+      "name": "UI's Mosque",
+      "latitude": 7.4472419,
+      "longitude": 3.8991882,
+      "feature_type": "way",
+      "category": "place_of_worship",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362968885",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "UI's Mosque",
+        "opening_hours": "24/7",
+        "religion": "muslim",
+        "service_times": "week 1-53/2 Fr 09:00-12:00; week 2-52/2 We 09:00-12:00",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362968886",
+      "name": "UI's Mosque",
+      "latitude": 7.4469829,
+      "longitude": 3.8993103,
+      "feature_type": "way",
+      "category": "place_of_worship",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362968886",
+      "tags": {
+        "amenity": "place_of_worship",
+        "building": "yes",
+        "name": "UI's Mosque",
+        "opening_hours": "24/7",
+        "religion": "muslim",
+        "service_times": "week 1-53/2 Fr 09:00-12:00; week 2-52/2 We 09:00-12:00",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/758353452",
+      "name": "UI's Swimming Pool",
+      "latitude": 7.4446604,
+      "longitude": 3.8978983,
+      "feature_type": "way",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/758353452",
+      "tags": {
+        "code": "2253",
+        "fclass": "swimming_pool",
+        "name": "UI's Swimming Pool",
+        "osm_id": "97622427"
+      }
+    },
+    {
+      "id": "way/97622427",
+      "name": "UI's Swimming Pool",
+      "latitude": 7.4447377,
+      "longitude": 3.8979347,
+      "feature_type": "way",
+      "category": "swimming_pool",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/97622427",
+      "tags": {
+        "leisure": "swimming_pool",
+        "name": "UI's Swimming Pool",
+        "source": "Yahoo",
+        "sport": "swimming",
+        "water": "pond"
+      }
+    },
+    {
+      "id": "way/364487907",
+      "name": "University Administartion Block",
+      "latitude": 7.4446396,
+      "longitude": 3.899971,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487907",
+      "tags": {
+        "building": "yes",
+        "name": "University Administartion Block",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/364487909",
+      "name": "University Administartion Block",
+      "latitude": 7.4446831,
+      "longitude": 3.9004328,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487909",
+      "tags": {
+        "building": "yes",
+        "name": "University Administartion Block",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "node/2542783215",
+      "name": "University Bookshop",
+      "latitude": 7.4451827,
+      "longitude": 3.9005424,
+      "feature_type": "node",
+      "category": "books",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2542783215",
+      "tags": {
+        "name": "University Bookshop",
+        "shop": "books"
+      }
+    },
+    {
+      "id": "way/364487911",
+      "name": "University Bookshop",
+      "latitude": 7.4452685,
+      "longitude": 3.900488,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487911",
+      "tags": {
+        "building": "yes",
+        "name": "University Bookshop",
+        "opening_hours": "24/7",
+        "operator": "University",
+        "source": "bing",
+        "wheelchair": "yes"
+      }
+    },
+    {
+      "id": "node/8960475566",
+      "name": "University Health Service, Jaja Clinic, UI",
+      "latitude": 7.4425946,
+      "longitude": 3.900756,
+      "feature_type": "node",
+      "category": "clinic",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/8960475566",
+      "tags": {
+        "addr:city": "Ibadan",
+        "amenity": "clinic",
+        "description": "Clinic outside Sasa community",
+        "healthcare": "clinic",
+        "health_facility:type": "clinic",
+        "name": "University Health Service, Jaja Clinic, UI"
+      }
+    },
+    {
+      "id": "node/2819861348",
+      "name": "University of Ibadan",
+      "latitude": 7.4477245,
+      "longitude": 3.8967116,
+      "feature_type": "node",
+      "category": "place",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/node/2819861348",
+      "tags": {
+        "name": "University of Ibadan",
+        "place": "neighbourhood"
+      }
+    },
+    {
+      "id": "relation/10476332",
+      "name": "University of Ibadan",
+      "latitude": 7.462857,
+      "longitude": 3.8925227,
+      "feature_type": "relation",
+      "category": "university",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/relation/10476332",
+      "tags": {
+        "amenity": "university",
+        "name": "University of Ibadan",
+        "type": "multipolygon"
+      }
+    },
+    {
+      "id": "way/913576615",
+      "name": "University of Ibadan",
+      "latitude": 7.4473147,
+      "longitude": 3.8937413,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/913576615",
+      "tags": {
+        "building": "yes",
+        "description": "University of Ibadan",
+        "name": "University of Ibadan"
+      }
+    },
+    {
+      "id": "way/913576616",
+      "name": "University of Ibadan",
+      "latitude": 7.4470856,
+      "longitude": 3.8935151,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/913576616",
+      "tags": {
+        "building": "yes",
+        "description": "University of Ibadan",
+        "name": "University of Ibadan"
+      }
+    },
+    {
+      "id": "way/362951238",
+      "name": "University's ICT Centre",
+      "latitude": 7.4471826,
+      "longitude": 3.8963726,
+      "feature_type": "way",
+      "category": "yes",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362951238",
+      "tags": {
+        "building": "yes",
+        "name": "University's ICT Centre",
+        "source": "bing"
+      }
+    },
+    {
+      "id": "way/362847576",
+      "name": "University's Tennis Court",
+      "latitude": 7.4452456,
+      "longitude": 3.8973438,
+      "feature_type": "way",
+      "category": "pitch",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847576",
+      "tags": {
+        "leisure": "pitch",
+        "name": "University's Tennis Court",
+        "source": "bing",
+        "sport": "tennis"
+      }
+    },
+    {
+      "id": "way/362847577",
+      "name": "University's Volleyball Court",
+      "latitude": 7.4447677,
+      "longitude": 3.8971386,
+      "feature_type": "way",
+      "category": "pitch",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/362847577",
+      "tags": {
+        "leisure": "pitch",
+        "name": "University's Volleyball Court",
+        "operator": "University",
+        "source": "bing",
+        "sport": "volleyball"
+      }
+    },
+    {
+      "id": "way/364487914",
+      "name": "Volley Ball",
+      "latitude": 7.4457313,
+      "longitude": 3.8997114,
+      "feature_type": "way",
+      "category": "pitch",
+      "source": "OpenStreetMap",
+      "source_url": "https://www.openstreetmap.org/way/364487914",
+      "tags": {
+        "leisure": "pitch",
+        "name": "Volley Ball",
+        "operator": "Mellanby",
+        "sport": "volleyball"
+      }
+    }
+  ]
+}

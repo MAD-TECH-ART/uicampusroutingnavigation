@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UI Campus Navigation System — Group A14</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
+  :root{
+    --navy:#16233F;
+    --navy-2:#1E345C;
+    --gold:#E3A72E;
+    --coral:#D6553F;
+    --teal:#1B8A8A;
+    --ink:#16192B;
+    --paper:#FFFFFF;
+    --line:#DDE1E9;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+
+  header{
+    padding:20px 32px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  header .title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--navy);
+    letter-spacing:-0.01em;
+  }
+  header .title span{color:var(--coral);}
+  header .subtitle{
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  main{
+    display:flex;
+    flex:1;
+    min-height:0;
+  }
+
+  .map-pane{
+    flex:1;
+    position:relative;
+    background:
+      radial-gradient(circle at 1px 1px, #EEF0F4 1.5px, transparent 1.5px);
+    background-size:24px 24px;
+    overflow:hidden;
+  }
+  svg{width:100%;height:100%;display:block;}
+
+  .road{stroke:#D3D8E1;stroke-width:2.2;}
+  .road-warn{stroke:#E3A72E;stroke-width:3;}
+  .road-bad{stroke:#D6553F;stroke-width:3;}
+  .road-closed{stroke:#B23A3A;stroke-width:2.5;stroke-dasharray:6 4;}
+  .route-seg{stroke:var(--coral);stroke-width:4.5;stroke-linecap:round;fill:none;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.15));}
+  .shuttle-seg{stroke:var(--teal);stroke-width:4.5;stroke-linecap:round;fill:none;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.15));}
+
+  .node circle{stroke:#fff;stroke-width:1.6;cursor:pointer;}
+  .node text{
+    font-size:8.5px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    fill:var(--ink);
+    pointer-events:none;
+  }
+  .node .order-label{
+    font-size:9px;
+    font-weight:700;
+    fill:var(--navy);
+    text-anchor:middle;
+    pointer-events:none;
+  }
+  .node.selected circle{stroke:var(--gold);stroke-width:3;}
+
+  .cat-hall{fill:#2E6F9E;}
+  .cat-faculty{fill:#C7511F;}
+  .cat-institute{fill:#8B5CF6;}
+  .cat-landmark{fill:#4C9F70;}
+  .cat-gate{fill:#7C5CBF;}
+
+  .sidebar{
+    width:350px;
+    flex-shrink:0;
+    border-left:1px solid var(--line);
+    padding:20px 22px;
+    overflow-y:auto;
+    background:#FBFBFC;
+  }
+  .mode-toggle{
+    display:flex;
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .mode-toggle button{
+    flex:1;
+    padding:9px 8px;
+    border:none;
+    background:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    color:var(--muted);
+    cursor:pointer;
+  }
+  .mode-toggle button.active{
+    background:var(--navy);
+    color:#fff;
+  }
+
+  .field{margin-bottom:14px;}
+  .field label{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:5px;
+  }
+  select{
+    width:100%;
+    padding:8px 9px;
+    border:1px solid var(--line);
+    border-radius:7px;
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    background:#fff;
+    color:var(--ink);
+  }
+
+  .stops-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:10px;
+  }
+  .stop-chip{
+    padding:5px 10px;
+    border-radius:14px;
+    background:#EAF1F0;
+    border:1px solid #CFE3E1;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .stop-chip button{
+    border:none;background:none;color:var(--teal);
+    cursor:pointer;font-weight:700;font-size:13px;line-height:1;
+    padding:0;
+  }
+
+  .compute-btn{
+    width:100%;
+    padding:11px;
+    border:none;
+    border-radius:8px;
+    background:var(--navy);
+    color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    margin-bottom:8px;
+  }
+  .compute-btn:hover{background:var(--navy-2);}
+  .ghost-btn{
+    width:100%;
+    padding:9px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fff;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    cursor:pointer;
+    margin-bottom:6px;
+  }
+  .ghost-btn:hover{border-color:var(--teal); color:var(--teal);}
+
+  .section-label{
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+
+  .stats{
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    margin-top:6px;
+  }
+  .stat-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:7px 0;
+  }
+  .stat-row .label{font-size:12px;color:var(--muted);}
+  .stat-row .value{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--ink);
+  }
+  .stat-row .value.highlight{color:var(--coral);}
+  .stat-row .value.highlight-teal{color:var(--teal);}
+
+  .route-path{
+    font-size:11.5px;
+    line-height:1.65;
+    color:var(--ink);
+    background:#F2F4F7;
+    border-radius:8px;
+    padding:11px;
+    margin-top:6px;
+    max-height:160px;
+    overflow-y:auto;
+  }
+
+  .conditions-list{
+    font-size:11px;
+    color:var(--ink);
+    background:#FFF7EC;
+    border:1px solid #F0DDBA;
+    border-radius:8px;
+    padding:9px 11px;
+    margin-top:8px;
+    line-height:1.6;
+    max-height:120px;
+    overflow-y:auto;
+  }
+  .conditions-list.empty{
+    color:var(--muted);
+    font-style:italic;
+    background:#F7F8FA;
+    border-color:var(--line);
+  }
+
+  .legend{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    font-size:10.5px;
+    color:var(--muted);
+    padding:10px 32px;
+    border-top:1px solid var(--line);
+  }
+  .legend .dot{
+    width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px;
+  }
+  .legend .line{
+    width:14px;height:2px;display:inline-block;margin-right:4px;vertical-align:middle;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="title">UI Campus Navigation System <span>· A14</span></div>
+    <div class="subtitle">Campus Transportation Routing System — University of Ibadan (prototype)</div>
+  </div>
+  <div class="subtitle" id="header-count">Model network · Dijkstra + 2-opt shuttle planning · live-conditions layer</div>
+</header>
+
+<main>
+  <div class="map-pane">
+    <svg id="map" viewBox="-100 -60 1600 1000" preserveAspectRatio="xMidYMid meet"></svg>
+  </div>
+
+  <div class="sidebar">
+    <div class="mode-toggle">
+      <button id="mode-single" class="active">Single trip</button>
+      <button id="mode-shuttle">Shuttle route</button>
+    </div>
+
+    <div id="single-panel">
+      <div class="field">
+        <label>Start from</label>
+        <select id="from-select"></select>
+      </div>
+      <div class="field">
+        <label>Going to</label>
+        <select id="to-select"></select>
+      </div>
+    </div>
+
+    <div id="shuttle-panel" style="display:none;">
+      <div class="field">
+        <label>Depot (start &amp; end point)</label>
+        <select id="depot-select"></select>
+      </div>
+      <div class="field">
+        <label>Stops to visit</label>
+        <div class="stops-list" id="stops-list"></div>
+        <select id="stop-add-select"></select>
+      </div>
+    </div>
+
+    <button class="compute-btn" id="compute-btn">Calculate route</button>
+
+    <div class="section-label">LIVE &amp; TIME-OF-DAY CONDITIONS</div>
+    <div class="field">
+      <label>Plan for</label>
+      <select id="time-profile-select">
+        <option value="off_peak">Off-peak (default)</option>
+        <option value="class_change">Class-change hour</option>
+        <option value="meal_time">Meal time</option>
+        <option value="night">Night</option>
+      </select>
+    </div>
+    <button class="ghost-btn" id="simulate-btn">🔴 Simulate live conditions</button>
+    <button class="ghost-btn" id="clear-conditions-btn">Clear simulated conditions</button>
+    <div class="conditions-list empty" id="conditions-list">No live conditions reported. Routes use time-of-day profile only.</div>
+
+    <div class="stats" id="stats" style="display:none;">
+      <div class="stat-row"><span class="label">Effective distance</span><span class="value highlight" id="stat-distance">—</span></div>
+      <div class="stat-row"><span class="label">Est. travel time (walk)</span><span class="value" id="stat-time">—</span></div>
+      <div class="stat-row" id="stat-improve-row" style="display:none;">
+        <span class="label">Saved vs. unoptimized</span><span class="value highlight-teal" id="stat-improve">—</span>
+      </div>
+      <div class="route-path" id="route-path"></div>
+    </div>
+  </div>
+</main>
+
+<div class="legend">
+  <span><span class="dot" style="background:#2E6F9E"></span>Hall of Residence</span>
+  <span><span class="dot" style="background:#C7511F"></span>Faculty / Academic</span>
+  <span><span class="dot" style="background:#8B5CF6"></span>Institute</span>
+  <span><span class="dot" style="background:#4C9F70"></span>Landmark</span>
+  <span><span class="dot" style="background:#7C5CBF"></span>Gate</span>
+  <span style="margin-left:14px;"><span class="line" style="background:#D3D8E1"></span>Free-flow</span>
+  <span><span class="line" style="background:#E3A72E"></span>Congested</span>
+  <span><span class="line" style="background:#D6553F"></span>Heavy congestion</span>
+  <span><span class="line" style="background:#B23A3A;border-top:2px dashed #B23A3A;height:0;"></span>Reported closed</span>
+</div>
+
+<script>
+// ---------------------------------------------------------------------
+// Data model — generated from data/campus_data.json by build_demo.py.
+// Do not hand-edit the two constants below; edit the JSON and rebuild.
+// ---------------------------------------------------------------------
+const NODES = {
+  "MAIN_GATE": {
+    "name": "Main Gate (Oduduwa Rd)",
+    "cat": "gate",
+    "x": 0,
+    "y": 0
+  },
+  "SUB": {
+    "name": "Student Union Building",
+    "cat": "landmark",
+    "x": 300,
+    "y": 150
+  },
+  "LIBRARY": {
+    "name": "Kenneth Dike Library",
+    "cat": "landmark",
+    "x": 500,
+    "y": 250
+  },
+  "SENATE": {
+    "name": "Senate Building",
+    "cat": "landmark",
+    "x": 550,
+    "y": 400
+  },
+  "TRENCHARD": {
+    "name": "Trenchard Hall",
+    "cat": "landmark",
+    "x": 420,
+    "y": 230
+  },
+  "CHAPEL": {
+    "name": "Chapel of the Resurrection",
+    "cat": "landmark",
+    "x": 650,
+    "y": 150
+  },
+  "MOSQUE": {
+    "name": "Central Mosque",
+    "cat": "landmark",
+    "x": 350,
+    "y": 200
+  },
+  "POST_OFFICE": {
+    "name": "Post Office",
+    "cat": "landmark",
+    "x": 280,
+    "y": 300
+  },
+  "BOOKSHOP": {
+    "name": "University Bookshop",
+    "cat": "landmark",
+    "x": 430,
+    "y": 360
+  },
+  "HEALTH_CENTRE": {
+    "name": "University Health Centre (Jaja Clinic)",
+    "cat": "landmark",
+    "x": 550,
+    "y": 355
+  },
+  "ICT_CENTRE": {
+    "name": "ICT Centre",
+    "cat": "landmark",
+    "x": 660,
+    "y": 330
+  },
+  "FAC_ARTS": {
+    "name": "Faculty of Arts",
+    "cat": "faculty",
+    "x": 650,
+    "y": 450
+  },
+  "FAC_LAW": {
+    "name": "Faculty of Law",
+    "cat": "faculty",
+    "x": 500,
+    "y": 550
+  },
+  "FAC_SOC_SCI": {
+    "name": "Faculty of the Social Sciences",
+    "cat": "faculty",
+    "x": 750,
+    "y": 550
+  },
+  "INST_AFR": {
+    "name": "Institute of African Studies",
+    "cat": "institute",
+    "x": 720,
+    "y": 470
+  },
+  "FAC_EDUCATION": {
+    "name": "Faculty of Education",
+    "cat": "faculty",
+    "x": 550,
+    "y": 750
+  },
+  "INST_EDUCATION": {
+    "name": "Institute of Education",
+    "cat": "institute",
+    "x": 600,
+    "y": 810
+  },
+  "FAC_ECON_MGT": {
+    "name": "Faculty of Economics & Management Sciences",
+    "cat": "faculty",
+    "x": 420,
+    "y": 820
+  },
+  "FAC_SCI": {
+    "name": "Faculty of Science",
+    "cat": "faculty",
+    "x": 700,
+    "y": 200
+  },
+  "FAC_TECH": {
+    "name": "Faculty of Technology",
+    "cat": "faculty",
+    "x": 900,
+    "y": 300
+  },
+  "ZOO": {
+    "name": "Zoological Garden",
+    "cat": "landmark",
+    "x": 850,
+    "y": 100
+  },
+  "BOTANICAL": {
+    "name": "Botanical Garden",
+    "cat": "landmark",
+    "x": 750,
+    "y": 40
+  },
+  "FAC_AGRIC": {
+    "name": "Faculty of Agriculture",
+    "cat": "faculty",
+    "x": 1000,
+    "y": 150
+  },
+  "FAC_RENEWABLE": {
+    "name": "Faculty of Renewable Natural Resources",
+    "cat": "faculty",
+    "x": 1080,
+    "y": 90
+  },
+  "FAC_ENV_DESIGN": {
+    "name": "Faculty of Environmental Design & Management",
+    "cat": "faculty",
+    "x": 970,
+    "y": 250
+  },
+  "UCH": {
+    "name": "University College Hospital",
+    "cat": "landmark",
+    "x": 1150,
+    "y": 220
+  },
+  "FAC_BASIC_MED": {
+    "name": "Faculty of Basic Medical Sciences",
+    "cat": "faculty",
+    "x": 1230,
+    "y": 270
+  },
+  "FAC_CLINICAL": {
+    "name": "Faculty of Clinical Sciences",
+    "cat": "faculty",
+    "x": 1290,
+    "y": 190
+  },
+  "FAC_DENTISTRY": {
+    "name": "Faculty of Dentistry",
+    "cat": "faculty",
+    "x": 1340,
+    "y": 250
+  },
+  "FAC_PUB_HEALTH": {
+    "name": "Faculty of Public Health",
+    "cat": "faculty",
+    "x": 1230,
+    "y": 350
+  },
+  "ALEX_BROWN": {
+    "name": "Alexander Brown Hall",
+    "cat": "hall",
+    "x": 1150,
+    "y": 400
+  },
+  "FAC_PHARMACY": {
+    "name": "Faculty of Pharmacy",
+    "cat": "faculty",
+    "x": 790,
+    "y": 690
+  },
+  "FAC_VET_MED": {
+    "name": "Faculty of Veterinary Medicine",
+    "cat": "faculty",
+    "x": 900,
+    "y": 770
+  },
+  "MELLANBY": {
+    "name": "Mellanby Hall",
+    "cat": "hall",
+    "x": 200,
+    "y": 350
+  },
+  "TEDDER": {
+    "name": "Tedder Hall",
+    "cat": "hall",
+    "x": 250,
+    "y": 450
+  },
+  "KUTI": {
+    "name": "Kuti Hall",
+    "cat": "hall",
+    "x": 150,
+    "y": 500
+  },
+  "SULTAN_BELLO": {
+    "name": "Sultan Bello Hall",
+    "cat": "hall",
+    "x": 350,
+    "y": 600
+  },
+  "INDEPENDENCE": {
+    "name": "Independence Hall",
+    "cat": "hall",
+    "x": 450,
+    "y": 700
+  },
+  "AZIKIWE": {
+    "name": "Nnamdi Azikiwe Hall",
+    "cat": "hall",
+    "x": 400,
+    "y": 650
+  },
+  "TAFAWA_PG": {
+    "name": "Tafawa Balewa Hall (Postgrad)",
+    "cat": "hall",
+    "x": 380,
+    "y": 680
+  },
+  "QUEEN_IDIA": {
+    "name": "Queen Idia Hall",
+    "cat": "hall",
+    "x": 900,
+    "y": 650
+  },
+  "QEII": {
+    "name": "Queen Elizabeth II Hall",
+    "cat": "hall",
+    "x": 990,
+    "y": 540
+  },
+  "AWOLOWO_PG": {
+    "name": "Obafemi Awolowo Hall (Postgrad)",
+    "cat": "hall",
+    "x": 1040,
+    "y": 430
+  },
+  "ABDUSALAMI_PG": {
+    "name": "Abdusalami Abubakar Hall (Postgrad)",
+    "cat": "hall",
+    "x": 1130,
+    "y": 460
+  },
+  "STADIUM": {
+    "name": "Sports Centre / Stadium",
+    "cat": "landmark",
+    "x": 1000,
+    "y": 780
+  }
+};
+const ROADS = [["MAIN_GATE", "SUB"], ["SUB", "MOSQUE"], ["MOSQUE", "POST_OFFICE"], ["POST_OFFICE", "BOOKSHOP"], ["BOOKSHOP", "HEALTH_CENTRE"], ["HEALTH_CENTRE", "LIBRARY"], ["SUB", "LIBRARY"], ["LIBRARY", "TRENCHARD"], ["TRENCHARD", "SENATE"], ["LIBRARY", "SENATE"], ["LIBRARY", "ICT_CENTRE"], ["ICT_CENTRE", "SENATE"], ["SENATE", "CHAPEL"], ["CHAPEL", "FAC_SCI"], ["SENATE", "FAC_ARTS"], ["FAC_ARTS", "INST_AFR"], ["FAC_ARTS", "FAC_SOC_SCI"], ["SENATE", "FAC_LAW"], ["FAC_LAW", "FAC_SOC_SCI"], ["FAC_LAW", "SULTAN_BELLO"], ["FAC_LAW", "FAC_EDUCATION"], ["FAC_EDUCATION", "INST_EDUCATION"], ["FAC_EDUCATION", "FAC_ECON_MGT"], ["FAC_ECON_MGT", "INDEPENDENCE"], ["SUB", "MELLANBY"], ["MELLANBY", "TEDDER"], ["TEDDER", "KUTI"], ["TEDDER", "SULTAN_BELLO"], ["SULTAN_BELLO", "TAFAWA_PG"], ["SULTAN_BELLO", "AZIKIWE"], ["AZIKIWE", "INDEPENDENCE"], ["INDEPENDENCE", "STADIUM"], ["FAC_SOC_SCI", "QUEEN_IDIA"], ["QUEEN_IDIA", "QEII"], ["QEII", "AWOLOWO_PG"], ["AWOLOWO_PG", "ABDUSALAMI_PG"], ["QUEEN_IDIA", "STADIUM"], ["FAC_SOC_SCI", "STADIUM"], ["FAC_SCI", "FAC_TECH"], ["FAC_SCI", "ZOO"], ["ZOO", "BOTANICAL"], ["FAC_TECH", "FAC_ENV_DESIGN"], ["FAC_ENV_DESIGN", "FAC_AGRIC"], ["FAC_AGRIC", "FAC_RENEWABLE"], ["FAC_TECH", "UCH"], ["UCH", "FAC_BASIC_MED"], ["FAC_BASIC_MED", "FAC_CLINICAL"], ["FAC_CLINICAL", "FAC_DENTISTRY"], ["FAC_BASIC_MED", "FAC_PUB_HEALTH"], ["FAC_PUB_HEALTH", "ALEX_BROWN"], ["ALEX_BROWN", "AWOLOWO_PG"], ["FAC_SOC_SCI", "FAC_PHARMACY"], ["FAC_PHARMACY", "FAC_VET_MED"], ["FAC_VET_MED", "STADIUM"]];
+
+document.getElementById('header-count').textContent =
+  `Model network · ${Object.keys(NODES).length} locations · Dijkstra + 2-opt shuttle planning · live-conditions layer`;
+
+const adjacency = {};
+Object.keys(NODES).forEach(id => adjacency[id] = []);
+function dist(a,b){
+  const na=NODES[a], nb=NODES[b];
+  return Math.hypot(na.x-nb.x, na.y-nb.y);
+}
+ROADS.forEach(([a,b])=>{
+  const w = dist(a,b);
+  adjacency[a].push([b,w]);
+  adjacency[b].push([a,w]);
+});
+
+// ---------------------------------------------------------------------
+// Live / time-of-day congestion model — mirrors code/live_conditions.py
+// ---------------------------------------------------------------------
+const TIME_PROFILES = {
+  off_peak: 1.00,
+  class_change: 1.35,
+  meal_time: 1.20,
+  night: 0.90,
+};
+const HIGH_TRAFFIC_NODES = new Set(["SUB","LIBRARY","SENATE","FAC_ARTS","FAC_SCI","TRENCHARD"]);
+
+// key: "A|B" (sorted) -> {multiplier, reason}
+let liveConditions = {};
+function edgeKey(a,b){ return a<b ? a+"|"+b : b+"|"+a; }
+
+function effectiveWeight(a, b, baseDist, timeProfile){
+  const key = edgeKey(a,b);
+  if(liveConditions[key]){
+    const {multiplier} = liveConditions[key];
+    if(multiplier <= 0) return null; // closed
+    return baseDist * multiplier;
+  }
+  let mult = TIME_PROFILES[timeProfile] ?? 1.0;
+  if((timeProfile==="class_change" || timeProfile==="meal_time") &&
+     (HIGH_TRAFFIC_NODES.has(a) || HIGH_TRAFFIC_NODES.has(b))){
+    mult *= 1.15;
+  }
+  return baseDist * mult;
+}
+
+function simulateLiveConditions(numEvents=4){
+  const allEdges = [];
+  Object.keys(adjacency).forEach(a=>{
+    adjacency[a].forEach(([b])=>{ if(a<b) allEdges.push([a,b]); });
+  });
+  const reasons = ["pedestrian crowd","minor obstruction","vendor stall","ongoing repairs"];
+  const shuffled = allEdges.sort(()=>Math.random()-0.5).slice(0, numEvents);
+  shuffled.forEach(([a,b])=>{
+    const multiplier = Math.round((1.3 + Math.random()*0.9)*100)/100;
+    liveConditions[edgeKey(a,b)] = {
+      a, b, multiplier,
+      reason: reasons[Math.floor(Math.random()*reasons.length)],
+    };
+  });
+  renderConditionsList();
+}
+function clearLiveConditions(){
+  liveConditions = {};
+  renderConditionsList();
+}
+function renderConditionsList(){
+  const el = document.getElementById('conditions-list');
+  const entries = Object.values(liveConditions);
+  if(entries.length === 0){
+    el.className = "conditions-list empty";
+    el.textContent = "No live conditions reported. Routes use time-of-day profile only.";
+    return;
+  }
+  el.className = "conditions-list";
+  el.innerHTML = entries.map(c=>
+    `<strong>${NODES[c.a].name} ↔ ${NODES[c.b].name}</strong>: ×${c.multiplier} (${c.reason})`
+  ).join("<br>");
+}
+
+// ---------------------------------------------------------------------
+// Dijkstra (condition-aware)
+// ---------------------------------------------------------------------
+function dijkstra(source, target, timeProfile){
+  const distances = {}, prev = {}, visited = new Set();
+  Object.keys(NODES).forEach(id => distances[id] = Infinity);
+  distances[source] = 0;
+  const pq = [[0, source]];
+
+  while(pq.length){
+    pq.sort((a,b)=>a[0]-b[0]);
+    const [d, cur] = pq.shift();
+    if(visited.has(cur)) continue;
+    visited.add(cur);
+    if(cur === target) break;
+    for(const [nb, baseW] of adjacency[cur]){
+      if(visited.has(nb)) continue;
+      const w = effectiveWeight(cur, nb, baseW, timeProfile);
+      if(w === null) continue; // closed edge
+      const nd = d + w;
+      if(nd < distances[nb]){
+        distances[nb] = nd;
+        prev[nb] = cur;
+        pq.push([nd, nb]);
+      }
+    }
+  }
+  if(distances[target] === Infinity) return {path:null, distance:Infinity};
+  const path = [];
+  let node = target;
+  while(node !== undefined){ path.push(node); node = prev[node]; }
+  path.reverse();
+  return {path, distance: distances[target]};
+}
+
+function buildMatrix(points, timeProfile){
+  const m = {};
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<points.length;j++){
+      const a=points[i], b=points[j];
+      const {distance} = dijkstra(a,b,timeProfile);
+      m[a+"|"+b] = distance;
+      m[b+"|"+a] = distance;
+    }
+  }
+  return m;
+}
+function routeLength(route, m){
+  let total = 0;
+  for(let i=0;i<route.length-1;i++) total += m[route[i]+"|"+route[i+1]];
+  return total;
+}
+function nearestNeighbor(depot, stops, m){
+  const unvisited = new Set(stops);
+  const route = [depot];
+  let current = depot;
+  while(unvisited.size){
+    let best=null, bestD=Infinity;
+    unvisited.forEach(s=>{
+      const d = m[current+"|"+s];
+      if(d<bestD){bestD=d;best=s;}
+    });
+    route.push(best);
+    unvisited.delete(best);
+    current = best;
+  }
+  route.push(depot);
+  return route;
+}
+function twoOpt(route, m){
+  let best = route.slice();
+  let improved = true;
+  while(improved){
+    improved = false;
+    for(let i=1;i<best.length-2;i++){
+      for(let j=i+1;j<best.length-1;j++){
+        if(j-i===1) continue;
+        const newRoute = best.slice(0,i).concat(best.slice(i,j).reverse(), best.slice(j));
+        if(routeLength(newRoute,m) < routeLength(best,m)){
+          best = newRoute;
+          improved = true;
+        }
+      }
+    }
+  }
+  return best;
+}
+function planShuttle(depot, stops, timeProfile){
+  const all = [depot, ...stops];
+  const m = buildMatrix(all, timeProfile);
+  const initial = nearestNeighbor(depot, stops, m);
+  const optimized = twoOpt(initial, m);
+  return {
+    initialRoute: initial, initialDistance: routeLength(initial,m),
+    optimizedRoute: optimized, optimizedDistance: routeLength(optimized,m),
+  };
+}
+
+// ---------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------
+const svg = document.getElementById('map');
+const NS = "http://www.w3.org/2000/svg";
+
+function roadClassFor(a,b){
+  const key = edgeKey(a,b);
+  const cond = liveConditions[key];
+  if(!cond) return "road";
+  if(cond.multiplier <= 0) return "road-closed";
+  if(cond.multiplier >= 1.8) return "road-bad";
+  return "road-warn";
+}
+
+function drawBase(){
+  svg.innerHTML = "";
+  ROADS.forEach(([a,b])=>{
+    const na=NODES[a], nb=NODES[b];
+    const line = document.createElementNS(NS,"line");
+    line.setAttribute("x1",na.x); line.setAttribute("y1",na.y);
+    line.setAttribute("x2",nb.x); line.setAttribute("y2",nb.y);
+    line.setAttribute("class",roadClassFor(a,b));
+    svg.appendChild(line);
+  });
+}
+
+function drawRouteLines(route, cssClass, timeProfile){
+  for(let i=0;i<route.length-1;i++){
+    const {path} = dijkstra(route[i], route[i+1], timeProfile);
+    if(!path) continue;
+    for(let k=0;k<path.length-1;k++){
+      const na=NODES[path[k]], nb=NODES[path[k+1]];
+      const line = document.createElementNS(NS,"line");
+      line.setAttribute("x1",na.x); line.setAttribute("y1",na.y);
+      line.setAttribute("x2",nb.x); line.setAttribute("y2",nb.y);
+      line.setAttribute("class",cssClass);
+      svg.appendChild(line);
+    }
+  }
+}
+
+function drawNodes(highlightSet, orderMap){
+  Object.entries(NODES).forEach(([id,n])=>{
+    const g = document.createElementNS(NS,"g");
+    g.setAttribute("class","node"+(highlightSet && highlightSet.has(id) ? " selected":""));
+    const c = document.createElementNS(NS,"circle");
+    c.setAttribute("cx",n.x); c.setAttribute("cy",n.y);
+    c.setAttribute("r", highlightSet && highlightSet.has(id) ? 9 : 6);
+    c.setAttribute("class","cat-"+n.cat);
+    g.appendChild(c);
+
+    if(orderMap && orderMap.has(id)){
+      const t = document.createElementNS(NS,"text");
+      t.setAttribute("x",n.x); t.setAttribute("y",n.y+3.5);
+      t.setAttribute("class","order-label");
+      t.textContent = orderMap.get(id);
+      g.appendChild(t);
+    }
+
+    const label = document.createElementNS(NS,"text");
+    label.setAttribute("x", n.x);
+    label.setAttribute("y", n.y - 10);
+    label.setAttribute("text-anchor","middle");
+    label.textContent = n.name;
+    g.appendChild(label);
+
+    svg.appendChild(g);
+  });
+}
+
+function render(route, mode, timeProfile){
+  drawBase();
+  if(route && route.length){
+    drawRouteLines(route, mode==="shuttle" ? "shuttle-seg" : "route-seg", timeProfile);
+    const orderMap = mode==="shuttle" ? new Map(route.map((id,idx)=>[id,idx])) : null;
+    drawNodes(new Set(route), orderMap);
+  } else {
+    drawNodes();
+  }
+}
+
+// ---------------------------------------------------------------------
+// UI wiring
+// ---------------------------------------------------------------------
+const fromSelect = document.getElementById('from-select');
+const toSelect = document.getElementById('to-select');
+const depotSelect = document.getElementById('depot-select');
+const stopAddSelect = document.getElementById('stop-add-select');
+const stopsListEl = document.getElementById('stops-list');
+const timeProfileSelect = document.getElementById('time-profile-select');
+
+const sortedIds = Object.keys(NODES).sort((a,b)=>NODES[a].name.localeCompare(NODES[b].name));
+function fillSelect(sel){
+  sel.innerHTML = "";
+  sortedIds.forEach(id=>{
+    const opt = document.createElement('option');
+    opt.value = id; opt.textContent = NODES[id].name;
+    sel.appendChild(opt);
+  });
+}
+fillSelect(fromSelect); fillSelect(toSelect); fillSelect(depotSelect); fillSelect(stopAddSelect);
+fromSelect.value = "MAIN_GATE";
+toSelect.value = NODES["FAC_DENTISTRY"] ? "FAC_DENTISTRY" : sortedIds[1];
+depotSelect.value = "MAIN_GATE";
+
+let shuttleStops = ["MELLANBY","KUTI","SULTAN_BELLO","QUEEN_IDIA","AWOLOWO_PG"].filter(id=>NODES[id]);
+
+function renderStopChips(){
+  stopsListEl.innerHTML = "";
+  shuttleStops.forEach(id=>{
+    const chip = document.createElement('div');
+    chip.className = "stop-chip";
+    chip.innerHTML = `${NODES[id].name} <button data-id="${id}">×</button>`;
+    stopsListEl.appendChild(chip);
+  });
+  stopsListEl.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      shuttleStops = shuttleStops.filter(s=>s!==btn.dataset.id);
+      renderStopChips();
+    });
+  });
+}
+renderStopChips();
+
+document.getElementById('stop-add-select').addEventListener('change', (e)=>{
+  const id = e.target.value;
+  if(id && !shuttleStops.includes(id)){
+    shuttleStops.push(id);
+    renderStopChips();
+  }
+});
+
+const modeSingleBtn = document.getElementById('mode-single');
+const modeShuttleBtn = document.getElementById('mode-shuttle');
+const singlePanel = document.getElementById('single-panel');
+const shuttlePanel = document.getElementById('shuttle-panel');
+let currentMode = "single";
+
+modeSingleBtn.addEventListener('click', ()=>{
+  currentMode = "single";
+  modeSingleBtn.classList.add('active'); modeShuttleBtn.classList.remove('active');
+  singlePanel.style.display = "block"; shuttlePanel.style.display = "none";
+  document.getElementById('stats').style.display = "none";
+  render(null);
+});
+modeShuttleBtn.addEventListener('click', ()=>{
+  currentMode = "shuttle";
+  modeShuttleBtn.classList.add('active'); modeSingleBtn.classList.remove('active');
+  shuttlePanel.style.display = "block"; singlePanel.style.display = "none";
+  document.getElementById('stats').style.display = "none";
+  render(null);
+});
+
+document.getElementById('simulate-btn').addEventListener('click', ()=>{
+  simulateLiveConditions(4);
+  render(null, currentMode, timeProfileSelect.value);
+});
+document.getElementById('clear-conditions-btn').addEventListener('click', ()=>{
+  clearLiveConditions();
+  render(null, currentMode, timeProfileSelect.value);
+});
+timeProfileSelect.addEventListener('change', ()=>{
+  render(null, currentMode, timeProfileSelect.value);
+});
+
+const WALK_SPEED_M_PER_MIN = 80;
+
+document.getElementById('compute-btn').addEventListener('click', ()=>{
+  const statsEl = document.getElementById('stats');
+  const improveRow = document.getElementById('stat-improve-row');
+  const timeProfile = timeProfileSelect.value;
+
+  if(currentMode === "single"){
+    const src = fromSelect.value, tgt = toSelect.value;
+    if(src === tgt){ alert("Pick two different locations."); return; }
+    const {path, distance} = dijkstra(src, tgt, timeProfile);
+    if(!path){ alert("No route available — all paths currently blocked by reported closures."); return; }
+    render(path, "single", timeProfile);
+    statsEl.style.display = "block";
+    improveRow.style.display = "none";
+    document.getElementById('stat-distance').textContent = distance.toFixed(0) + " m";
+    document.getElementById('stat-time').textContent = (distance/WALK_SPEED_M_PER_MIN).toFixed(1) + " min";
+    document.getElementById('route-path').textContent = path.map(id=>NODES[id].name).join(" → ");
+  } else {
+    const depot = depotSelect.value;
+    const stops = shuttleStops.filter(s=>s!==depot);
+    if(stops.length < 2){ alert("Add at least two stops."); return; }
+    const result = planShuttle(depot, stops, timeProfile);
+    render(result.optimizedRoute, "shuttle", timeProfile);
+    statsEl.style.display = "block";
+    improveRow.style.display = "flex";
+    document.getElementById('stat-distance').textContent = result.optimizedDistance.toFixed(0) + " m";
+    document.getElementById('stat-time').textContent = (result.optimizedDistance/WALK_SPEED_M_PER_MIN).toFixed(1) + " min";
+    const saved = result.initialDistance - result.optimizedDistance;
+    const pct = result.initialDistance ? (saved/result.initialDistance*100) : 0;
+    document.getElementById('stat-improve').textContent = saved.toFixed(0) + " m (" + pct.toFixed(1) + "%)";
+    document.getElementById('route-path').textContent =
+      result.optimizedRoute.map((id,i)=> (i+1) + ". " + NODES[id].name).join("\n");
+    document.getElementById('route-path').style.whiteSpace = "pre-line";
+  }
+});
+
+// initial paint
+render(null);
+</script>
+</body>
+</html>

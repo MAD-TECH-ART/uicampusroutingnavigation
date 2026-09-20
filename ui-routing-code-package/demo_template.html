@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>UI Campus Navigation System — Group A14</title>
+<link rel="icon" type="image/png" href="../ui_logo.png">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+
+  :root{
+    --navy:#16233F;
+    --navy-2:#1E345C;
+    --gold:#E3A72E;
+    --coral:#D6553F;
+    --teal:#1B8A8A;
+    --ink:#16192B;
+    --paper:#FFFFFF;
+    --line:#DDE1E9;
+    --muted:#6B7280;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+  }
+
+  header{
+    padding:20px 32px 14px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand-logo{
+    width:42px;
+    height:42px;
+    object-fit:contain;
+    border-radius:10px;
+    background:#fff;
+    box-shadow:0 0 0 1px rgba(22,35,63,.08);
+    padding:4px;
+  }
+  header .title{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--navy);
+    letter-spacing:-0.01em;
+  }
+  header .title span{color:var(--coral);}
+  header .subtitle{
+    font-size:12.5px;
+    color:var(--muted);
+  }
+
+  main{
+    display:flex;
+    flex:1;
+    min-height:0;
+  }
+
+  .map-pane{
+    flex:1;
+    position:relative;
+    background:
+      radial-gradient(circle at 1px 1px, #EEF0F4 1.5px, transparent 1.5px);
+    background-size:24px 24px;
+    overflow:hidden;
+  }
+  #map{width:100%;height:100%;display:block;}
+  .map-notice{
+    position:absolute;
+    top:14px;
+    left:14px;
+    z-index:500;
+    max-width:290px;
+    padding:8px 10px;
+    border:1px solid #F0DDBA;
+    border-radius:7px;
+    background:rgba(255,247,236,.95);
+    color:#72551D;
+    font-size:11px;
+    line-height:1.4;
+    box-shadow:0 2px 8px rgba(22,25,43,.12);
+  }
+  .location-status{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.4;
+    margin-top:7px;
+  }
+  .location-status.found{color:var(--teal);}
+  .location-status.error{color:var(--coral);}
+
+  .road{stroke:#D3D8E1;stroke-width:2.2;}
+  .road-warn{stroke:#E3A72E;stroke-width:3;}
+  .road-bad{stroke:#D6553F;stroke-width:3;}
+  .road-closed{stroke:#B23A3A;stroke-width:2.5;stroke-dasharray:6 4;}
+  .route-seg{stroke:var(--coral);stroke-width:4.5;stroke-linecap:round;fill:none;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.15));}
+  .shuttle-seg{stroke:var(--teal);stroke-width:4.5;stroke-linecap:round;fill:none;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,0.15));}
+
+  .node circle{stroke:#fff;stroke-width:1.6;cursor:pointer;}
+  .node text{
+    font-size:8.5px;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    fill:var(--ink);
+    pointer-events:none;
+  }
+  .node .order-label{
+    font-size:9px;
+    font-weight:700;
+    fill:var(--navy);
+    text-anchor:middle;
+    pointer-events:none;
+  }
+  .node.selected circle{stroke:var(--gold);stroke-width:3;}
+
+  .cat-hall{fill:#2E6F9E;}
+  .cat-faculty{fill:#C7511F;}
+  .cat-institute{fill:#8B5CF6;}
+  .cat-landmark{fill:#4C9F70;}
+  .cat-gate{fill:#7C5CBF;}
+  .campus-place-label{
+    background:rgba(255,255,255,.92);
+    border:1px solid rgba(22,35,63,.45);
+    border-radius:4px;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:10px;
+    font-weight:700;
+    line-height:1.2;
+    padding:3px 5px;
+    white-space:nowrap;
+    box-shadow:0 1px 4px rgba(22,25,43,.2);
+    pointer-events:auto;
+  }
+  .campus-place-label.verified{border-color:var(--teal);color:var(--teal);}
+  .campus-place-label.candidate{border-color:var(--coral);color:var(--coral);}
+
+  .sidebar{
+    width:350px;
+    flex-shrink:0;
+    border-left:1px solid var(--line);
+    padding:20px 22px;
+    overflow-y:auto;
+    background:#FBFBFC;
+  }
+  .mode-toggle{
+    display:flex;
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    margin-bottom:18px;
+  }
+  .mode-toggle button{
+    flex:1;
+    padding:9px 8px;
+    border:none;
+    background:var(--paper);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:12.5px;
+    color:var(--muted);
+    cursor:pointer;
+  }
+  .mode-toggle button.active{
+    background:var(--navy);
+    color:#fff;
+  }
+  .campus-place-panel{
+    padding:12px 0 16px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:18px;
+  }
+  .campus-place-panel input,
+  .campus-place-panel select,
+  .field input,
+  .field select{
+    width:100%;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:9px;
+    font-family:'Inter',sans-serif;
+    font-size:12.5px;
+    background:#fff;
+    color:var(--ink);
+    margin-top:6px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .field input:focus,
+  .field select:focus,
+  .campus-place-panel input:focus,
+  .campus-place-panel select:focus{
+    outline:none;
+    border-color:rgba(27,138,138,.65);
+    box-shadow:0 0 0 3px rgba(27,138,138,.12);
+  }
+  .campus-place-summary{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.4;
+    margin-top:8px;
+  }
+  .stops-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-bottom:10px;
+  }
+  .stop-chip{
+    padding:5px 10px;
+    border-radius:14px;
+    background:#EAF1F0;
+    border:1px solid #CFE3E1;
+    font-size:11.5px;
+    font-weight:600;
+    color:var(--teal);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .stop-chip button{
+    border:none;background:none;color:var(--teal);
+    cursor:pointer;font-weight:700;font-size:13px;line-height:1;
+    padding:0;
+  }
+
+  .compute-btn{
+    width:100%;
+    padding:11px;
+    border:none;
+    border-radius:8px;
+    background:var(--navy);
+    color:#fff;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    margin-bottom:8px;
+  }
+  .compute-btn:hover{background:var(--navy-2);}
+  .ghost-btn{
+    width:100%;
+    padding:9px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fff;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:12px;
+    cursor:pointer;
+    margin-bottom:6px;
+  }
+  .ghost-btn:hover{border-color:var(--teal); color:var(--teal);}
+
+  .section-label{
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    letter-spacing:0.03em;
+    margin:18px 0 8px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+
+  .stats{
+    border-top:1px solid var(--line);
+    padding-top:14px;
+    margin-top:6px;
+  }
+  .stat-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:7px 0;
+  }
+  .stat-row .label{font-size:12px;color:var(--muted);}
+  .stat-row .value{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:600;
+    font-size:13.5px;
+    color:var(--ink);
+  }
+  .stat-row .value.highlight{color:var(--coral);}
+  .stat-row .value.highlight-teal{color:var(--teal);}
+
+  .route-path{
+    font-size:11.5px;
+    line-height:1.65;
+    color:var(--ink);
+    background:#F2F4F7;
+    border-radius:8px;
+    padding:11px;
+    margin-top:6px;
+    max-height:160px;
+    overflow-y:auto;
+  }
+
+  .route-details{
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+  }
+  .route-details-title{
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    letter-spacing:0.03em;
+    margin-bottom:8px;
+  }
+  .route-summary{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:6px 12px;
+    font-size:11px;
+  }
+  .route-summary-row{
+    display:flex;
+    justify-content:space-between;
+    gap:8px;
+  }
+  .route-summary-row .label{color:var(--muted);}
+  .route-summary-row .value{
+    color:var(--ink);
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    text-align:right;
+  }
+  .directions{
+    margin:10px 0 0;
+    padding:0 0 0 24px;
+    max-height:180px;
+    overflow-y:auto;
+    color:var(--ink);
+    font-size:11.5px;
+    line-height:1.55;
+  }
+  .directions li{padding:2px 0 2px 3px;}
+
+  .legend{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    font-size:10.5px;
+    color:var(--muted);
+    padding:10px 32px;
+    border-top:1px solid var(--line);
+  }
+  .legend .dot{
+    width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:4px;
+  }
+  .legend .line{
+    width:14px;height:2px;display:inline-block;margin-right:4px;vertical-align:middle;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img class="brand-logo" src="../ui_logo.png" alt="University of Ibadan logo">
+    <div>
+      <div class="title">UI Campus Navigation System <span>· A14</span></div>
+      <div class="subtitle">University of Ibadan campus navigation</div>
+    </div>
+  </div>
+  <div class="subtitle" id="header-count">Campus map · live route planner</div>
+</header>
+
+<main>
+  <div class="map-pane">
+    <div id="map" aria-label="Interactive campus route map"></div>
+    <div class="map-notice" id="campus-coordinate-notice">Campus map uses open map data and keeps GPS on this device.</div>
+  </div>
+
+  <div class="sidebar">
+    <div class="mode-toggle">
+      <button id="mode-single" class="active">Single trip</button>
+      <button id="mode-shuttle">Shuttle route</button>
+    </div>
+
+    <div class="section-label">CURRENT BROWSER LOCATION</div>
+    <div class="collection-actions">
+      <button class="ghost-btn" id="use-location-btn">Use my location</button>
+    </div>
+    <div class="location-status" id="location-status">Location unavailable until requested.</div>
+    <div class="location-status">Your location stays on this device and is not uploaded.</div>
+
+    <div class="campus-place-panel">
+      <div class="section-label">CAMPUS PLACES</div>
+      <label for="campus-place-search">Search all named places</label>
+      <input id="campus-place-search" type="search" placeholder="Search by name or category">
+      <label for="campus-place-category">Filter by category</label>
+      <select id="campus-place-category">
+        <option value="">All categories</option>
+      </select>
+      <div class="campus-place-summary" id="campus-place-summary"></div>
+    </div>
+
+    <div id="routing-panel">
+    <div id="single-panel">
+      <div class="field">
+        <div class="field-header">
+          <label for="from-search">Start from</label>
+          <button class="mini-link" type="button" id="quick-start-current">Use current</button>
+        </div>
+        <input id="from-search" type="search" placeholder="Enter your start location" autocomplete="off">
+        <select id="from-select" hidden></select>
+        <span class="field-note">Choose the place where you are starting.</span>
+      </div>
+      <div class="field">
+        <div class="field-header">
+          <label for="to-search">Going to</label>
+        </div>
+        <input id="to-search" type="search" placeholder="Enter your destination" autocomplete="off">
+        <select id="to-select" hidden></select>
+        <span class="field-note">Choose the destination you want to reach.</span>
+      </div>
+      <div class="location-status" id="place-search-status">Search real University of Ibadan places to set a route.</div>
+    </div>
+
+    <div id="shuttle-panel" style="display:none;">
+      <div class="field">
+        <label>Depot (start &amp; end point)</label>
+        <select id="depot-select"></select>
+      </div>
+      <div class="field">
+        <label>Stops to visit</label>
+        <div class="stops-list" id="stops-list"></div>
+        <select id="stop-add-select"></select>
+      </div>
+    </div>
+
+    <button class="compute-btn" id="compute-btn">Start Route</button>
+
+    <div class="field">
+      <label>Travel mode</label>
+      <div class="travel-mode-selector" role="group" aria-label="Travel mode selector">
+        <button class="travel-mode-option active" type="button" data-mode="walking">Walking</button>
+        <button class="travel-mode-option" type="button" data-mode="driving">Driving</button>
+      </div>
+      <select id="travel-mode-select" hidden>
+        <option value="walking">Walking</option>
+        <option value="driving">Driving</option>
+      </select>
+    </div>
+
+    <div class="stats" id="stats" style="display:none;">
+      <div class="stat-row"><span class="label">Effective distance</span><span class="value highlight" id="stat-distance">—</span></div>
+      <div class="stat-row"><span class="label" id="stat-time-label">Est. travel time (walking)</span><span class="value" id="stat-time">—</span></div>
+      <div class="stat-row"><span class="label">Current time</span><span class="value" id="stat-current-time">—</span></div>
+      <div class="stat-row"><span class="label">Estimated arrival</span><span class="value" id="stat-arrival-time">—</span></div>
+      <div class="route-path" id="route-path"></div>
+      <div class="route-details" id="route-details" style="display:none;">
+        <div class="route-details-title">ROUTE SUMMARY</div>
+        <div class="route-summary">
+          <div class="route-summary-row"><span class="label">Start</span><span class="value" id="summary-start">—</span></div>
+          <div class="route-summary-row"><span class="label">Destination</span><span class="value" id="summary-destination">—</span></div>
+          <div class="route-summary-row"><span class="label">Travel mode</span><span class="value" id="summary-travel-mode">—</span></div>
+          <div class="route-summary-row"><span class="label">Estimated time</span><span class="value" id="summary-walk-time">—</span></div>
+        </div>
+        <div class="route-details-title" style="margin-top:12px;">DIRECTIONS</div>
+        <ol class="directions" id="directions-list"></ol>
+      </div>
+    </div>
+    </div>
+  </div>
+</main>
+
+<div class="legend">📍 Campus places · OpenStreetMap streets · GPS stays on this device</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>/*__LOCATION_ADAPTER_JS__*/</script>
+<script>
+// ---------------------------------------------------------------------
+// Data model — generated from data/campus_data.json by build_demo.py.
+// Do not hand-edit the constants below; edit the JSON and rebuild.
+// ---------------------------------------------------------------------
+const NODES = /*__CAMPUS_NODES_JSON__*/;
+const ROADS = /*__CAMPUS_EDGES_JSON__*/;
+const MAP_COORDINATES = /*__MAP_COORDINATES_JSON__*/;
+const VERIFIED_MAP_COORDINATES = /*__VERIFIED_MAP_COORDINATES_JSON__*/;
+const COORDINATE_METADATA = /*__COORDINATE_METADATA_JSON__*/;
+const CAMPUS_VIEW_CENTER = [7.4411, 3.9000];
+const CAMPUS_VIEW_BOUNDS = L.latLngBounds(
+  [7.4377245, 3.8867116],
+  [7.4577245, 3.9067116]
+);
+const ROUTE_DATA = /*__ROUTE_DATA_JSON__*/;
+const ROUTE_MATRIX = /*__ROUTE_MATRIX_JSON__*/;
+const RESEARCH_CACHE = /*__RESEARCH_CACHE_JSON__*/;
+const CAMPUS_PLACES_DATA = /*__CAMPUS_PLACES_JSON__*/;
+const CAMPUS_PLACES = CAMPUS_PLACES_DATA.places || [];
+const ROUTING_COORDINATE_CANDIDATES = /*__ROUTING_COORDINATE_CANDIDATES_JSON__*/;
+const COORDINATE_DATASET = /*__COORDINATE_DATASET_JSON__*/;
+const DEFAULT_TIME_PROFILE = 'off_peak';
+
+document.getElementById('header-count').textContent =
+  'Campus map · live route planner';
+
+const routeLookup = (source, target, timeProfile) =>
+  ROUTE_DATA[timeProfile]?.[source + "|" + target] || null;
+
+function verifiedCoordinate(nodeId){
+  if (nodeId.startsWith('place:')) {
+    const placeId = nodeId.slice(6);
+    const place = CAMPUS_PLACES.find(item => item.id === placeId);
+    return place ? {lat: place.latitude, lon: place.longitude} : null;
+  }
+  const record = COORDINATE_DATASET.nodes?.[nodeId];
+  if (!record?.verified || record.latitude === null || record.longitude === null) return null;
+  return {lat: record.latitude, lon: record.longitude};
+}
+
+function coordinateForNode(nodeId){
+  if (!nodeId) return null;
+  if (nodeId.startsWith('place:')) {
+    const place = CAMPUS_PLACES.find(item => item.id === nodeId.slice(6));
+    return place ? [place.latitude, place.longitude] : null;
+  }
+  const record = COORDINATE_DATASET.nodes?.[nodeId];
+  if (record?.verified && record.latitude !== null && record.longitude !== null) {
+    return [record.latitude, record.longitude];
+  }
+  const fallback = MAP_COORDINATES[nodeId];
+  if (fallback && Math.abs(fallback.lat) <= 90 && Math.abs(fallback.lng) <= 180) {
+    return [fallback.lat, fallback.lng];
+  }
+  const node = NODES[nodeId];
+  const anchors = Object.entries(COORDINATE_DATASET.nodes || {})
+    .filter(([anchorId, anchor]) => anchor.verified && anchor.latitude !== null && anchor.longitude !== null && NODES[anchorId]);
+  if (!node || !anchors.length) return null;
+  const reference = anchors[0];
+  let latitudeScale = 0;
+  let longitudeScale = 0;
+  let latitudeSamples = 0;
+  let longitudeSamples = 0;
+  anchors.slice(1).forEach(([anchorId, anchor]) => {
+    const anchorNode = NODES[anchorId];
+    const deltaX = anchorNode.x - NODES[reference[0]].x;
+    const deltaY = anchorNode.y - NODES[reference[0]].y;
+    if (deltaY) {
+      latitudeScale += (anchor.latitude - reference[1].latitude) / deltaY;
+      latitudeSamples += 1;
+    }
+    if (deltaX) {
+      longitudeScale += (anchor.longitude - reference[1].longitude) / deltaX;
+      longitudeSamples += 1;
+    }
+  });
+  if (!latitudeSamples || !longitudeSamples) return null;
+  const referenceNode = NODES[reference[0]];
+  return [
+    reference[1].latitude + (node.y - referenceNode.y) * latitudeScale / latitudeSamples,
+    reference[1].longitude + (node.x - referenceNode.x) * longitudeScale / longitudeSamples,
+  ];
+}
+
+function resolveRoutingNodeId(locationId){
+  if (!locationId) return null;
+  if (NODES[locationId]) return locationId;
+  const coordinate = coordinateForNode(locationId);
+  if (!coordinate) return null;
+  return Object.keys(NODES).reduce((nearest, nodeId) => {
+    const candidate = coordinateForNode(nodeId);
+    if (!candidate) return nearest;
+    const distance = distanceMeters(coordinate, candidate);
+    return !nearest || distance < nearest.distance ? {nodeId, distance} : nearest;
+  }, null)?.nodeId || null;
+}
+
+function routeDistanceForPath(path){
+  return path.slice(0, -1).reduce((total, nodeId, index) => {
+    const start = coordinateForNode(nodeId);
+    const end = coordinateForNode(path[index + 1]);
+    return start && end ? total + distanceMeters(start, end) : total;
+  }, 0);
+}
+
+function buildLocalRoute(path, travelMode){
+  const resolvedInput = path.map(resolveRoutingNodeId).filter(Boolean);
+  if (resolvedInput.length < 2) {
+    throw new Error('This place cannot be matched to a campus road yet.');
+  }
+
+  const resolvedPath = [];
+  for (let index = 0; index < resolvedInput.length - 1; index += 1) {
+    const source = resolvedInput[index];
+    const target = resolvedInput[index + 1];
+    const leg = ROUTE_MATRIX[DEFAULT_TIME_PROFILE]?.[source + '|' + target] ||
+      ROUTE_MATRIX[DEFAULT_TIME_PROFILE]?.[target + '|' + source];
+    const legPath = leg?.path || [source, target];
+    legPath.forEach((nodeId, nodeIndex) => {
+      if (index > 0 && nodeIndex === 0) return;
+      resolvedPath.push(nodeId);
+    });
+  }
+
+  const geometry = resolvedPath.map(coordinateForNode);
+  if (geometry.some(point => !point)) {
+    throw new Error('This route includes a campus location without map coordinates.');
+  }
+  const distance = routeDistanceForPath(resolvedPath);
+  const seconds = Math.max(60, Math.round(distance / TRAVEL_MODES[travelMode].metersPerMinute * 60));
+  return {
+    distance,
+    seconds,
+    geometry,
+    maneuvers: resolvedPath.map((nodeId, index) => {
+      if (index === 0) return `Start at ${NODES[nodeId].name}`;
+      if (index === resolvedPath.length - 1) return `Arrive at ${NODES[nodeId].name}`;
+      return `Continue to ${NODES[nodeId].name}`;
+    }),
+  };
+}
+
+const VALHALLA_ROUTE_URL = 'https://valhalla1.openstreetmap.de/route';
+const NOMINATIM_SEARCH_URL = 'https://nominatim.openstreetmap.org/search';
+const UI_IBADAN_BOUNDS = {
+  minLat: 7.37,
+  maxLat: 7.49,
+  minLng: 3.84,
+  maxLng: 3.99,
+};
+
+function validateCampusLocation(latitude, longitude){
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return false;
+  return latitude >= UI_IBADAN_BOUNDS.minLat && latitude <= UI_IBADAN_BOUNDS.maxLat &&
+    longitude >= UI_IBADAN_BOUNDS.minLng && longitude <= UI_IBADAN_BOUNDS.maxLng;
+}
+
+function decodePolyline6(encoded){
+  let index = 0;
+  let latitude = 0;
+  let longitude = 0;
+  const points = [];
+  while (index < encoded.length) {
+    let result = 0;
+    let shift = 0;
+    let byte;
+    do { byte = encoded.charCodeAt(index++) - 63; result |= (byte & 0x1f) << shift; shift += 5; } while (byte >= 0x20);
+    latitude += (result & 1) ? ~(result >> 1) : result >> 1;
+    result = 0; shift = 0;
+    do { byte = encoded.charCodeAt(index++) - 63; result |= (byte & 0x1f) << shift; shift += 5; } while (byte >= 0x20);
+    longitude += (result & 1) ? ~(result >> 1) : result >> 1;
+    points.push([latitude / 1e6, longitude / 1e6]);
+  }
+  return points;
+}
+
+function normalizeValhallaManeuvers(legs = []) {
+  const maneuvers = [];
+  let counter = 0;
+  legs.forEach((leg) => {
+    (leg.maneuvers || []).forEach((step) => {
+      if (!step) return;
+      const location = Array.isArray(step.location) && step.location.length >= 2 ? step.location : null;
+      const maneuver = {
+        instruction: step.instruction || step.verbal_transition_alert_instruction || step.verbal_pre_transition_instruction || 'Continue on the route.',
+        type: step.type || 'continue',
+        lat: location ? Number(location[1]) : null,
+        lng: location ? Number(location[0]) : null,
+        distance: Number(step.length) || 0,
+        time: Number(step.time) || 0,
+        index: counter,
+      };
+      if (maneuver.instruction || maneuver.lat !== null) {
+        maneuvers.push(maneuver);
+        counter += 1;
+      }
+    });
+  });
+  return maneuvers;
+}
+
+async function requestOpenRoute(origin, destination, travelMode, waypoints = []) {
+  const originPoint = {lat: origin.lat(), lng: origin.lng()};
+  const destinationPoint = {lat: destination.lat(), lng: destination.lng()};
+
+  if (!validateCampusLocation(originPoint.lat, originPoint.lng) || !validateCampusLocation(destinationPoint.lat, destinationPoint.lng)) {
+    throw new Error('The selected start or destination is outside the University of Ibadan route context.');
+  }
+
+  const locations = [originPoint, ...waypoints, destinationPoint].map(point => ({lat: point.lat, lon: point.lng}));
+  const response = await fetch(VALHALLA_ROUTE_URL, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      locations,
+      costing: travelMode === 'driving' ? 'auto' : 'pedestrian',
+      units: 'kilometers',
+      shape_format: 'polyline6',
+      directions_options: {
+        language: 'en-US',
+        units: 'kilometers',
+      },
+    }),
+  });
+  if (!response.ok) throw new Error('The free OpenStreetMap routing service is temporarily unavailable.');
+  const trip = (await response.json()).trip;
+  if (!trip?.summary || !trip.legs?.length) throw new Error('No walking or driving route was found for the selected route.');
+  const geometry = trip.legs.flatMap((leg, index) => { const shape = decodePolyline6(leg.shape); return index ? shape.slice(1) : shape; });
+  const maneuvers = normalizeValhallaManeuvers(trip.legs);
+  return {
+    distance: Number(trip.summary.length) * 1000,
+    seconds: Number(trip.summary.time),
+    geometry,
+    maneuvers,
+    provider: 'OpenStreetMap Valhalla',
+  };
+}
+
+function buildMatrix(points, timeProfile){
+  const m = {};
+  for(let i=0;i<points.length;i++){
+    for(let j=i+1;j<points.length;j++){
+      const a=points[i], b=points[j];
+      const leg = ROUTE_MATRIX[timeProfile]?.[a+"|"+b];
+      if(!leg) continue;
+      m[a+"|"+b] = leg.distance;
+      m[b+"|"+a] = leg.distance;
+    }
+  }
+  return m;
+}
+function routeLength(route, m){
+  let total = 0;
+  for(let i=0;i<route.length-1;i++) total += m[route[i]+"|"+route[i+1]];
+  return total;
+}
+function nearestNeighbor(depot, stops, m){
+  const unvisited = new Set(stops);
+  const route = [depot];
+  let current = depot;
+  while(unvisited.size){
+    let best=null, bestD=Infinity;
+    unvisited.forEach(s=>{
+      const d = m[current+"|"+s];
+      if(d<bestD){bestD=d;best=s;}
+    });
+    route.push(best);
+    unvisited.delete(best);
+    current = best;
+  }
+  route.push(depot);
+  return route;
+}
+function twoOpt(route, m){
+  let best = route.slice();
+  let improved = true;
+  while(improved){
+    improved = false;
+    for(let i=1;i<best.length-2;i++){
+      for(let j=i+1;j<best.length-1;j++){
+        if(j-i===1) continue;
+        const newRoute = best.slice(0,i).concat(best.slice(i,j).reverse(), best.slice(j));
+        if(routeLength(newRoute,m) < routeLength(best,m)){
+          best = newRoute;
+          improved = true;
+        }
+      }
+    }
+  }
+  return best;
+}
+function planShuttle(depot, stops, timeProfile){
+  const all = [depot, ...stops];
+  const m = buildMatrix(all, timeProfile);
+  const initial = nearestNeighbor(depot, stops, m);
+  const optimized = twoOpt(initial, m);
+  return {
+    initialRoute: initial, initialDistance: routeLength(initial,m),
+    optimizedRoute: optimized, optimizedDistance: routeLength(optimized,m),
+  };
+}
+
+// ---------------------------------------------------------------------
+// Rendering
+// ---------------------------------------------------------------------
+const map = L.map('map', {zoomControl: true, minZoom: 15, maxZoom: 19}).setView(CAMPUS_VIEW_CENTER, 15);
+const markerLayer = L.layerGroup().addTo(map);
+const roadLayer = L.layerGroup().addTo(map);
+const routeLayer = L.layerGroup().addTo(map);
+const locationLayer = L.layerGroup().addTo(map);
+const destinationMarkerLayer = L.layerGroup().addTo(map);
+const campusPlacesLayer = L.layerGroup().addTo(map);
+const routeState = {
+  currentLocationMarker: null,
+  destinationMarker: null,
+  activeRoute: null,
+  routeRequestInFlight: false,
+};
+const navigationState = {
+  active: false,
+  followUser: true,
+  lastKnownPosition: null,
+  lastRerouteAt: 0,
+  lastAnnouncementKey: null,
+  nextManeuverIndex: 0,
+  routeGeometry: null,
+  routeInfo: null,
+  wasOffRoute: false,
+  destinationReached: false,
+  lastPositionUpdate: 0,
+  lastSpeechAt: 0,
+  mobileFollowPaused: false,
+};
+let campusPlaceLabelMarkers = [];
+let campusPlaceLabelKeys = new Set();
+let latestBrowserLocation = null;
+let latestNearestVerifiedLocation = null;
+
+window.addEventListener('load', () => {
+  window.setTimeout(() => map.invalidateSize(), 200);
+});
+window.addEventListener('resize', () => map.invalidateSize());
+
+const satelliteLayer = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  {maxZoom: 19, attribution: '&copy; Esri, Maxar, Earthstar Geographics'}
+);
+const streetLayer = L.tileLayer(
+  'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  {maxZoom: 19, attribution: '&copy; OpenStreetMap contributors'}
+);
+streetLayer.addTo(map);
+L.control.layers({'OpenStreetMap': streetLayer, 'Satellite': satelliteLayer}, {'Named campus places': campusPlacesLayer}, {collapsed: false}).addTo(map);
+map.setMaxBounds(CAMPUS_VIEW_BOUNDS);
+document.getElementById('campus-coordinate-notice').textContent =
+  'University of Ibadan map · choose a real campus place to begin.';
+
+function drawCampusPlaces(){
+  campusPlacesLayer.clearLayers();
+  campusPlaceLabelMarkers = [];
+  campusPlaceLabelKeys = new Set();
+  document.getElementById('campus-place-summary').textContent =
+    'Campus places are shown for the University of Ibadan route planner.';
+}
+
+function drawRoutingCoordinateCandidates(){
+  Object.entries(ROUTING_COORDINATE_CANDIDATES.nodes || {}).forEach(([nodeId, candidate])=>{
+    candidate.matches.forEach(match=>{
+      if (campusPlaceLabelKeys.has(labelKey(candidate.node_name))) return;
+      campusPlaceLabelKeys.add(labelKey(candidate.node_name));
+      const marker = L.marker([match.latitude, match.longitude], {
+        icon: L.divIcon({className:'campus-place-label candidate', html:`📍 ${escapeHtml(candidate.node_name)}`, iconSize:null}),
+        opacity: 0,
+      });
+      marker.bindPopup(
+        `<strong>Routing candidate: ${escapeHtml(candidate.node_name)}</strong><br>` +
+        `${escapeHtml(match.name)} · ${match.latitude}, ${match.longitude}<br>` +
+        `<span>Unverified candidate; route alignment is not enabled.</span><br>` +
+        `<a href="${match.source_url}" target="_blank" rel="noreferrer">OpenStreetMap source</a>`
+      );
+      marker.addTo(campusPlacesLayer);
+      campusPlaceLabelMarkers.push(marker);
+    });
+  });
+}
+
+function drawVerifiedRoutingLocations(){
+  Object.entries(COORDINATE_DATASET.nodes || {}).forEach(([nodeId, record])=>{
+    if (!record.verified || record.latitude === null || record.longitude === null) return;
+    const label = NODES[nodeId]?.name || nodeId;
+    if (campusPlaceLabelKeys.has(labelKey(label))) return;
+    campusPlaceLabelKeys.add(labelKey(label));
+    const marker = L.marker([record.latitude, record.longitude], {
+      icon: L.divIcon({className:'campus-place-label verified', html:`📍 ${escapeHtml(label)}`, iconSize:null}),
+      opacity: 0,
+    });
+    marker.bindPopup(
+      `<strong>Verified routing location: ${escapeHtml(NODES[nodeId]?.name || nodeId)}</strong><br>` +
+      `${record.latitude}, ${record.longitude}<br>` +
+      `<span>${escapeHtml(record.notes)}</span><br>` +
+      `<a href="${record.source}" target="_blank" rel="noreferrer">OpenStreetMap source</a>`
+    );
+    marker.addTo(campusPlacesLayer);
+    campusPlaceLabelMarkers.push(marker);
+  });
+}
+
+function labelKey(value){
+  return String(value).toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function samePlaceLabel(first, second){
+  const firstKey = labelKey(first);
+  const secondKey = labelKey(second);
+  return firstKey === secondKey || (
+    firstKey.length > 8 && secondKey.length > 8 &&
+    (firstKey.includes(secondKey) || secondKey.includes(firstKey))
+  );
+}
+
+function updateCampusPlaceLabels(){
+  const visible = map.getZoom() >= 18;
+  campusPlaceLabelMarkers.forEach(marker=>marker.setOpacity(visible ? 1 : 0));
+}
+
+function escapeHtml(value){
+  return String(value).replace(/[&<>'"]/g, character => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;'
+  }[character]));
+}
+
+const campusPlaceCategories = [];
+campusPlaceCategories.forEach(category=>{
+  const option = document.createElement('option');
+  option.value = category;
+  option.textContent = category;
+  document.getElementById('campus-place-category').appendChild(option);
+});
+document.getElementById('campus-place-search').addEventListener('input', drawCampusPlaces);
+document.getElementById('campus-place-category').addEventListener('change', drawCampusPlaces);
+drawCampusPlaces();
+map.on('zoomend', updateCampusPlaceLabels);
+updateCampusPlaceLabels();
+
+function setLocationStatus(message, state=""){
+  const status = document.getElementById('location-status');
+  status.textContent = message;
+  status.className = "location-status" + (state ? " " + state : "");
+}
+
+function distanceMeters(first, second){
+  const radius = 6371000;
+  const latitudeDelta = (second[0] - first[0]) * Math.PI / 180;
+  const longitudeDelta = (second[1] - first[1]) * Math.PI / 180;
+  const latitudeOne = first[0] * Math.PI / 180;
+  const latitudeTwo = second[0] * Math.PI / 180;
+  const value = Math.sin(latitudeDelta / 2) ** 2 +
+    Math.cos(latitudeOne) * Math.cos(latitudeTwo) * Math.sin(longitudeDelta / 2) ** 2;
+  return 2 * radius * Math.asin(Math.sqrt(value));
+}
+
+function nearestVerifiedLocation(location){
+  let nearest = null;
+  Object.entries(COORDINATE_DATASET.nodes || {}).forEach(([nodeId, record])=>{
+    if (!record.verified || record.latitude === null || record.longitude === null) return;
+    const distance = distanceMeters(
+      [location.latitude, location.longitude],
+      [record.latitude, record.longitude]
+    );
+    if (!nearest || distance < nearest.distance) {
+      nearest = {nodeId, distance};
+    }
+  });
+  return nearest;
+}
+
+function applyCurrentLocationAsStart(location){
+  selectedPlaces.from = {
+    id: 'browser:current-location',
+    name: 'Your current location',
+    address: 'Browser GPS location',
+    location: {lat: () => location.latitude, lng: () => location.longitude},
+  };
+  fromSearch.value = 'Your current location';
+  fromSelect.innerHTML = '<option value="browser:current-location">Your current location</option>';
+  fromSelect.value = 'browser:current-location';
+  placeSearchStatus.textContent = 'Your live GPS position is selected as the route start.';
+}
+
+function clearDestinationMarker(){
+  if (routeState.destinationMarker) {
+    destinationMarkerLayer.removeLayer(routeState.destinationMarker);
+    routeState.destinationMarker = null;
+  }
+}
+
+function showDestinationMarker(latitude, longitude, label){
+  clearDestinationMarker();
+  routeState.destinationMarker = L.marker([latitude, longitude], {
+    title: label,
+  }).addTo(destinationMarkerLayer);
+  routeState.destinationMarker.bindPopup(label);
+}
+
+function showBrowserLocation(location){
+  latestBrowserLocation = location;
+  navigationState.lastKnownPosition = location;
+  const position = [location.latitude, location.longitude];
+  if (routeState.currentLocationMarker) {
+    locationLayer.removeLayer(routeState.currentLocationMarker);
+  }
+  routeState.currentLocationMarker = L.layerGroup();
+
+  const accuracyCircle = L.circle(position, {
+    radius: Math.max(10, location.accuracy || 20),
+    color: '#1B8A8A',
+    fillColor: '#1B8A8A',
+    fillOpacity: 0.15,
+    weight: 2,
+  }).addTo(routeState.currentLocationMarker);
+  const pointMarker = L.circleMarker(position, {
+    radius: 7,
+    color: '#FFFFFF',
+    weight: 2,
+    fillColor: '#1B8A8A',
+    fillOpacity: 1,
+  }).bindTooltip('Your browser location').addTo(routeState.currentLocationMarker);
+  routeState.currentLocationMarker.addTo(locationLayer);
+  if (followBrowserLocation && navigationState.followUser) map.setView(position, 16);
+  const nearest = nearestVerifiedLocation(location);
+  latestNearestVerifiedLocation = nearest;
+  const nearestText = nearest && NODES[nearest.nodeId]
+    ? ` · nearest mapped place: ${NODES[nearest.nodeId].name} (${Math.round(nearest.distance)} m)`
+    : '';
+  setLocationStatus(
+    `${isLiveLocationActive ? 'Live GPS active' : 'Location found'} · accuracy about ${Math.round(location.accuracy)} m${nearestText}`,
+    "found"
+  );
+  applyCurrentLocationAsStart(location);
+  if (navigationState.active) {
+    evaluateCurrentNavigation(location);
+  }
+  return {accuracyCircle, pointMarker};
+}
+
+function showLocationError(error){
+  const messages = {
+    UNSUPPORTED: 'Location unavailable — this browser does not support GPS location.',
+    PERMISSION_DENIED: 'Location permission was denied. Please enable location access in your browser settings.',
+    POSITION_UNAVAILABLE: 'Your location could not be determined. Please try again.',
+    TIMEOUT: 'Location timeout — please try again.',
+  };
+  setLocationStatus(messages[error.code] || 'Location unavailable. Please try again.', 'error');
+  if (error && typeof console !== 'undefined') {
+    console.warn('Location lookup failed:', error);
+  }
+}
+
+function speakNavigation(text, key = null){
+  if (!text || !('speechSynthesis' in window)) return;
+  const speechKey = key || text;
+  const now = Date.now();
+  if (navigationState.lastAnnouncementKey === speechKey && now - navigationState.lastSpeechAt < 4000) return;
+  navigationState.lastAnnouncementKey = speechKey;
+  navigationState.lastSpeechAt = now;
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'en-US';
+  utterance.rate = 1;
+  utterance.pitch = 1;
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(utterance);
+}
+
+function distanceToSegment(point, start, end){
+  const x = point[1], y = point[0];
+  const x1 = start[1], y1 = start[0];
+  const x2 = end[1], y2 = end[0];
+  const dx = x2 - x1;
+  const dy = y2 - y1;
+  if (dx === 0 && dy === 0) return distanceMeters(point, start);
+  const projection = ((x - x1) * dx + (y - y1) * dy) / (dx * dx + dy * dy);
+  const clamped = Math.min(1, Math.max(0, projection));
+  const closestX = x1 + clamped * dx;
+  const closestY = y1 + clamped * dy;
+  return distanceMeters([y, x], [closestY, closestX]);
+}
+
+function routeDistanceToGeometry(point, geometry){
+  if (!geometry || geometry.length < 2) return Infinity;
+  let minimum = Infinity;
+  for (let index = 0; index < geometry.length - 1; index += 1) {
+    const segmentDistance = distanceToSegment(point, geometry[index], geometry[index + 1]);
+    if (segmentDistance < minimum) minimum = segmentDistance;
+  }
+  return minimum;
+}
+
+function getNextManeuverInfo(currentPoint, geometry, maneuvers, startIndex = 0) {
+  if (!Array.isArray(maneuvers) || !maneuvers.length) return {maneuver: null, index: startIndex, distance: Infinity};
+  const clampedStart = Math.max(0, Math.min(startIndex, maneuvers.length - 1));
+  let selected = maneuvers[clampedStart];
+  let selectedDistance = Infinity;
+  let selectedIndex = clampedStart;
+
+  for (let index = clampedStart; index < maneuvers.length; index += 1) {
+    const maneuver = maneuvers[index];
+    if (!maneuver || maneuver.lat == null || maneuver.lng == null) continue;
+    const maneuverPoint = [maneuver.lat, maneuver.lng];
+    const nextDistance = distanceMeters(currentPoint, maneuverPoint);
+    if (nextDistance < selectedDistance) {
+      selected = maneuver;
+      selectedDistance = nextDistance;
+      selectedIndex = index;
+    }
+  }
+
+  if (!selected) {
+    return {maneuver: null, index: clampedStart, distance: Infinity};
+  }
+
+  const fallback = geometry && geometry.length ? geometry[Math.min(geometry.length - 1, selectedIndex + 1)] || geometry[geometry.length - 1] : null;
+  const maneuverPoint = selected.lat != null && selected.lng != null ? [selected.lat, selected.lng] : fallback;
+  return {
+    maneuver: selected,
+    index: selectedIndex,
+    distance: maneuverPoint ? distanceMeters(currentPoint, maneuverPoint) : Infinity,
+    coordinate: maneuverPoint,
+  };
+}
+
+function getMovementHeading(previous, current){
+  if (!previous || !current) return null;
+  const latDelta = current.latitude - previous.latitude;
+  const lngDelta = current.longitude - previous.longitude;
+  const distance = Math.hypot(latDelta, lngDelta);
+  if (distance < 0.00008) return null;
+  const degrees = Math.atan2(lngDelta, latDelta) * 180 / Math.PI;
+  return (degrees + 360) % 360;
+}
+
+function evaluateCurrentNavigation(location){
+  if (!navigationState.active || !navigationState.routeInfo || !navigationState.routeGeometry || !selectedPlaces.to) {
+    return;
+  }
+
+  const destination = selectedPlaces.to.location;
+  const destinationPoint = [destination.lat(), destination.lng()];
+  const currentPoint = [location.latitude, location.longitude];
+  const destinationDistance = distanceMeters(currentPoint, destinationPoint);
+  const routeAccuracyBuffer = Math.max(location.accuracy || 20, 20);
+  const nearestRouteDistance = routeDistanceToGeometry(currentPoint, navigationState.routeGeometry);
+
+  if (destinationDistance <= Math.max(25, routeAccuracyBuffer + 12)) {
+    navigationState.destinationReached = true;
+    document.getElementById('campus-coordinate-notice').textContent = 'You have arrived at your destination.';
+    if (navigationState.lastAnnouncementKey !== 'arrival') {
+      navigationState.lastAnnouncementKey = 'arrival';
+      speakNavigation('You have arrived at your destination.', 'arrival');
+    }
+    return;
+  }
+
+  if (nearestRouteDistance > Math.max(50, routeAccuracyBuffer + 35) && Date.now() - navigationState.lastRerouteAt > 15000) {
+    navigationState.wasOffRoute = true;
+    document.getElementById('campus-coordinate-notice').textContent = 'Route changed. Recalculating...';
+    navigationState.lastRerouteAt = Date.now();
+    rerouteFromCurrentLocation();
+    return;
+  }
+
+  const nextInfo = getNextManeuverInfo(currentPoint, navigationState.routeGeometry, navigationState.routeInfo.maneuvers, navigationState.nextManeuverIndex);
+  const maneuver = nextInfo.maneuver;
+  const maneuverInstruction = maneuver ? (maneuver.instruction || 'Continue on the route.') : 'Continue on the route.';
+  const maneuverPoint = nextInfo.coordinate || currentPoint;
+  const distanceToNext = distanceMeters(currentPoint, maneuverPoint);
+  const alertKey = `maneuver-${nextInfo.index}`;
+
+  if (!maneuver) {
+    if (navigationState.lastAnnouncementKey !== 'route-following') {
+      navigationState.lastAnnouncementKey = 'route-following';
+      speakNavigation('Follow the highlighted route to the destination.', 'route-following');
+    }
+    return;
+  }
+
+  navigationState.nextManeuverIndex = nextInfo.index;
+
+  if (distanceToNext <= Math.max(90, routeAccuracyBuffer + 25) && navigationState.lastAnnouncementKey !== `${alertKey}-early`) {
+    const message = `In 90 meters, ${maneuverInstruction}`;
+    document.getElementById('campus-coordinate-notice').textContent = message;
+    speakNavigation(message, `${alertKey}-early`);
+    return;
+  }
+
+  if (distanceToNext <= Math.max(30, routeAccuracyBuffer + 10) && navigationState.lastAnnouncementKey !== `${alertKey}-turn`) {
+    const message = maneuverInstruction;
+    document.getElementById('campus-coordinate-notice').textContent = message;
+    speakNavigation(message, `${alertKey}-turn`);
+    navigationState.nextManeuverIndex = Math.min(nextInfo.index + 1, Math.max(0, navigationState.routeInfo.maneuvers.length - 1));
+    return;
+  }
+
+  if (distanceToNext < 12) {
+    navigationState.nextManeuverIndex = Math.min(nextInfo.index + 1, Math.max(0, navigationState.routeInfo.maneuvers.length - 1));
+  }
+
+  const remainingDistance = navigationState.routeInfo.distance ? Math.max(0, navigationState.routeInfo.distance - routeDistanceToGeometry(currentPoint, navigationState.routeGeometry)) : 0;
+  document.getElementById('campus-coordinate-notice').textContent = distanceToNext < 250 ? `Next: ${maneuverInstruction}` : `Following route · ${Math.round(distanceToNext)} m to next maneuver`;
+  if (remainingDistance > 0 && navigationState.routeInfo.seconds) {
+    document.getElementById('stat-distance').textContent = `${Math.max(0, Math.round(remainingDistance))} m`;
+  }
+}
+
+async function rerouteFromCurrentLocation(){
+  if (!latestBrowserLocation || !selectedPlaces.to) return;
+  const currentLocation = {
+    lat: () => latestBrowserLocation.latitude,
+    lng: () => latestBrowserLocation.longitude,
+  };
+  try {
+    const routeResult = await requestOpenRoute(currentLocation, selectedPlaces.to.location, travelModeSelect.value);
+    navigationState.routeInfo = routeResult;
+    navigationState.routeGeometry = routeResult.geometry;
+    navigationState.nextManeuverIndex = 0;
+    navigationState.lastAnnouncementKey = null;
+    drawRealRoute(routeResult.geometry, travelModeSelect.value);
+    document.getElementById('stats').style.display = 'block';
+    document.getElementById('stat-distance').textContent = `${routeResult.distance.toFixed(0)} m`;
+    document.getElementById('stat-time').textContent = `${Math.max(1, Math.round(routeResult.seconds / 60))} min`;
+    document.getElementById('summary-start').textContent = 'Current GPS position';
+    document.getElementById('summary-destination').textContent = selectedPlaces.to.name;
+    document.getElementById('summary-travel-mode').textContent = TRAVEL_MODES[travelModeSelect.value].label;
+    document.getElementById('summary-walk-time').textContent = `about ${Math.max(1, Math.round(routeResult.seconds / 60))} min`;
+    renderRealDirections(routeResult.maneuvers);
+    document.getElementById('route-details').style.display = 'block';
+    document.getElementById('campus-coordinate-notice').textContent = 'Route updated from your current location.';
+  } catch (error) {
+    document.getElementById('campus-coordinate-notice').textContent = error.message || 'Unable to recalculate the route right now.';
+  }
+}
+
+function endNavigationSession(){
+  navigationState.active = false;
+  navigationState.destinationReached = false;
+  navigationState.nextManeuverIndex = 0;
+  navigationState.lastAnnouncementKey = null;
+  navigationState.routeGeometry = null;
+  navigationState.routeInfo = null;
+  navigationState.wasOffRoute = false;
+  navigationState.lastSpeechAt = 0;
+  navigationState.mobileFollowPaused = false;
+  navigationState.followUser = true;
+  if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+  }
+}
+
+const browserLocationAdapter = new BrowserLocationAdapter();
+let isLiveLocationActive = false;
+let followBrowserLocation = true;
+
+map.on('dragstart', () => {
+  if (navigationState.active) {
+    followBrowserLocation = false;
+    navigationState.mobileFollowPaused = true;
+  }
+});
+
+map.on('moveend', () => {
+  if (!navigationState.active || navigationState.mobileFollowPaused) return;
+  if (latestBrowserLocation) {
+    const currentPosition = [latestBrowserLocation.latitude, latestBrowserLocation.longitude];
+    map.setView(currentPosition, Math.max(map.getZoom(), 16));
+  }
+});
+
+document.getElementById('use-location-btn').addEventListener('click', ()=>{
+  followBrowserLocation = true;
+  navigationState.mobileFollowPaused = false;
+  if (isLiveLocationActive) {
+    browserLocationAdapter.stopWatching();
+    isLiveLocationActive = false;
+    setLocationStatus('Live GPS stopped. Your last location remains on the map.');
+    return;
+  }
+
+  setLocationStatus('Locating you...');
+  const started = browserLocationAdapter.startWatching(showBrowserLocation, showLocationError);
+  if (started) {
+    isLiveLocationActive = true;
+  }
+  browserLocationAdapter.request(showBrowserLocation, showLocationError);
+});
+
+function point(id){
+  const coordinate = VERIFIED_MAP_COORDINATES[id];
+  if (!coordinate) return null;
+  return [coordinate.lat, coordinate.lng];
+}
+
+function drawBase(){
+  roadLayer.clearLayers();
+}
+
+function drawNodes(highlightSet, orderMap){
+  markerLayer.clearLayers();
+}
+
+function drawRouteLines(route, mode, timeProfile){
+  routeLayer.clearLayers();
+  if (!route || route.length < 2) return;
+  L.polyline(route.map(id => point(id)).filter(Boolean), {
+    color: mode === 'driving' ? '#D6553F' : '#1B8A8A',
+    weight: 6,
+    opacity: 0.92,
+    lineCap: 'round',
+  }).addTo(routeLayer);
+}
+
+function drawRealRoute(geometry, mode){
+  routeLayer.clearLayers();
+  if (!geometry || geometry.length < 2) {
+    routeState.activeRoute = null;
+    return;
+  }
+  routeState.activeRoute = L.polyline(geometry, {
+    color: mode === 'driving' ? '#D6553F' : '#1B8A8A',
+    weight: 6,
+    opacity: 0.92,
+    lineCap: 'round',
+  }).addTo(routeLayer);
+  document.getElementById('campus-coordinate-notice').textContent =
+    `OpenStreetMap route shown for ${TRAVEL_MODES[mode].label.toLowerCase()} travel.`;
+}
+
+function updateRealtimeStatus(seconds){
+  const now = new Date();
+  const arrival = new Date(now.getTime() + seconds * 1000);
+  const format = value => value.toLocaleTimeString([], {hour: 'numeric', minute: '2-digit'});
+  document.getElementById('stat-current-time').textContent = format(now);
+  document.getElementById('stat-arrival-time').textContent = format(arrival);
+}
+
+function renderRealDirections(instructions){
+  const directions = document.getElementById('directions-list');
+  directions.innerHTML = '';
+  const visibleInstructions = instructions?.length
+    ? instructions
+    : ['Follow the highlighted route on the campus map.'];
+  visibleInstructions.forEach(instruction => {
+    const step = document.createElement('li');
+    step.textContent = instruction;
+    directions.appendChild(step);
+  });
+}
+
+function prepareNavigationSession(){
+  navigationState.active = true;
+  navigationState.destinationReached = false;
+  navigationState.lastAnnouncementKey = null;
+  navigationState.followUser = true;
+  navigationState.wasOffRoute = false;
+  navigationState.lastRerouteAt = 0;
+}
+
+function render(route, mode, timeProfile){
+  drawBase();
+  drawRouteLines(route || [], mode, timeProfile);
+  if (!route || route.length < 2) {
+    document.getElementById('campus-coordinate-notice').textContent =
+      'University of Ibadan campus map · select two places to begin.';
+  }
+  const orderMap = mode === 'shuttle' && route ? new Map(route.map((id, idx) => [id, idx + 1])) : null;
+  drawNodes(route ? new Set(route) : null, orderMap);
+}
+
+function clearAlgorithmComparison(){
+  const section = document.getElementById('algorithm-comparison');
+  if (section) section.style.display = 'none';
+}
+
+function clearRouteDetails(){
+  document.getElementById('route-details').style.display = 'none';
+  document.getElementById('directions-list').innerHTML = '';
+}
+
+function routeLocationName(locationId){
+  if (locationId?.startsWith('place:')) {
+    return CAMPUS_PLACES.find(place => place.id === locationId.slice(6))?.name || 'Selected place';
+  }
+  return NODES[locationId]?.name || 'Selected place';
+}
+
+// ---------------------------------------------------------------------
+// UI wiring
+// ---------------------------------------------------------------------
+const fromSelect = document.getElementById('from-select');
+const toSelect = document.getElementById('to-select');
+const fromSearch = document.getElementById('from-search');
+const toSearch = document.getElementById('to-search');
+const placeSearchStatus = document.getElementById('place-search-status');
+const depotSelect = document.getElementById('depot-select');
+const stopAddSelect = document.getElementById('stop-add-select');
+const stopsListEl = document.getElementById('stops-list');
+const selectedPlaces = {from: null, to: null};
+
+const sortedIds = Object.keys(NODES).sort((a, b) => NODES[a].name.localeCompare(NODES[b].name));
+function fillSelect(sel){
+  sel.innerHTML = '';
+  sortedIds.forEach(id => {
+    const opt = document.createElement('option');
+    opt.value = id;
+    opt.textContent = NODES[id].name;
+    sel.appendChild(opt);
+  });
+}
+function setupFreePlaceSearch(input, select, role){
+  const listId = `${role}-place-options`;
+  const datalist = document.createElement('datalist');
+  datalist.id = listId;
+  document.body.appendChild(datalist);
+  input.setAttribute('list', listId);
+
+  let searchTimer = null;
+  let lastResults = [];
+
+  const setSelectedPlace = (result) => {
+    if (!result) {
+      selectedPlaces[role] = null;
+      select.value = '';
+      return;
+    }
+
+    selectedPlaces[role] = {
+      id: `place:${result.id || result.name}`,
+      name: result.name,
+      address: result.address || result.display_name || 'University of Ibadan campus',
+      location: {lat: () => result.lat, lng: () => result.lon},
+    };
+    select.innerHTML = `<option value="${selectedPlaces[role].id}">${selectedPlaces[role].name}</option>`;
+    select.value = selectedPlaces[role].id;
+    if (role === 'to') {
+      showDestinationMarker(result.lat, result.lon, result.name);
+    }
+    placeSearchStatus.textContent = `${role === 'from' ? 'Start' : 'Destination'} selected from a real campus-area search result.`;
+  };
+
+  const updateDatalist = (results) => {
+    lastResults = results;
+    datalist.innerHTML = '';
+    results.forEach(result => {
+      const option = document.createElement('option');
+      option.value = result.name;
+      option.label = result.address || result.name;
+      datalist.appendChild(option);
+    });
+  };
+
+  input.addEventListener('input', () => {
+    const query = input.value.trim();
+    window.clearTimeout(searchTimer);
+
+    if (query.length < 2) {
+      selectedPlaces[role] = null;
+      select.value = '';
+      datalist.innerHTML = '';
+      placeSearchStatus.textContent = 'Search real University of Ibadan places to set a route.';
+      return;
+    }
+
+    const match = lastResults.find(result => result.name.toLowerCase() === query.toLowerCase());
+    if (match) {
+      setSelectedPlace(match);
+      return;
+    }
+
+    placeSearchStatus.textContent = 'Searching for a matching University of Ibadan location...';
+    searchTimer = window.setTimeout(async () => {
+      try {
+        const params = new URLSearchParams({
+          q: `${query}, University of Ibadan, Oyo, Nigeria`,
+          format: 'jsonv2',
+          limit: '5',
+          addressdetails: '1',
+          bounded: '1',
+          viewbox: '3.84,7.49,3.99,7.37',
+        });
+        const response = await fetch(`${NOMINATIM_SEARCH_URL}?${params.toString()}`, {
+          headers: {'Accept': 'application/json'}
+        });
+        if (!response.ok) {
+          throw new Error('Unable to search right now. Please check your connection and try again.');
+        }
+        const items = await response.json();
+        const campusResults = items
+          .filter(item => Number.isFinite(Number(item.lat)) && Number.isFinite(Number(item.lon)))
+          .filter(item => validateCampusLocation(Number(item.lat), Number(item.lon)))
+          .map(item => ({
+            id: item.place_id || `${item.lat}-${item.lon}`,
+            name: item.name || item.display_name.split(',')[0].trim() || 'Campus place',
+            address: item.display_name,
+            lat: Number(item.lat),
+            lon: Number(item.lon),
+          }));
+
+        updateDatalist(campusResults);
+        if (campusResults.length) {
+          setSelectedPlace(campusResults[0]);
+        } else {
+          selectedPlaces[role] = null;
+          select.value = '';
+          placeSearchStatus.textContent = 'No location found. Try a different University of Ibadan place name.';
+        }
+      } catch (error) {
+        console.warn('Search failed:', error);
+        selectedPlaces[role] = null;
+        select.value = '';
+        placeSearchStatus.textContent = error && error.message ? error.message : 'Unable to search right now. Please try again.';
+      }
+    }, 300);
+  });
+
+  input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' && lastResults.length) {
+      const first = lastResults[0];
+      setSelectedPlace(first);
+      input.value = first.name;
+    }
+  });
+}
+
+fillSelect(depotSelect); fillSelect(stopAddSelect);
+setupFreePlaceSearch(fromSearch, fromSelect, 'from');
+setupFreePlaceSearch(toSearch, toSelect, 'to');
+depotSelect.value = 'MAIN_GATE';
+
+let shuttleStops = ['MELLANBY', 'KUTI', 'SULTAN_BELLO', 'QUEEN_IDIA', 'AWOLOWO_PG'].filter(id => NODES[id]);
+
+function renderStopChips(){
+  stopsListEl.innerHTML = '';
+  shuttleStops.forEach(id => {
+    const chip = document.createElement('div');
+    chip.className = 'stop-chip';
+    chip.innerHTML = `${NODES[id].name} <button data-id="${id}">×</button>`;
+    stopsListEl.appendChild(chip);
+  });
+  stopsListEl.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      shuttleStops = shuttleStops.filter(s => s !== btn.dataset.id);
+      renderStopChips();
+    });
+  });
+}
+renderStopChips();
+
+document.getElementById('stop-add-select').addEventListener('change', (e) => {
+  const id = e.target.value;
+  if (id && !shuttleStops.includes(id)) {
+    shuttleStops.push(id);
+    renderStopChips();
+  }
+});
+
+const modeSingleBtn = document.getElementById('mode-single');
+const modeShuttleBtn = document.getElementById('mode-shuttle');
+const singlePanel = document.getElementById('single-panel');
+const shuttlePanel = document.getElementById('shuttle-panel');
+const routingPanel = document.getElementById('routing-panel');
+let currentMode = 'single';
+let lastSingleRoute = null;
+
+modeSingleBtn.addEventListener('click', () => {
+  currentMode = 'single';
+  modeSingleBtn.classList.add('active');
+  modeShuttleBtn.classList.remove('active');
+  singlePanel.style.display = 'block';
+  shuttlePanel.style.display = 'none';
+  routingPanel.style.display = 'block';
+  document.getElementById('compute-btn').textContent = 'Start Route';
+  document.getElementById('stats').style.display = 'none';
+  lastSingleRoute = null;
+  clearRouteDetails();
+  clearAlgorithmComparison();
+  render(null);
+});
+
+modeShuttleBtn.addEventListener('click', () => {
+  currentMode = 'shuttle';
+  modeShuttleBtn.classList.add('active');
+  modeSingleBtn.classList.remove('active');
+  shuttlePanel.style.display = 'block';
+  singlePanel.style.display = 'none';
+  routingPanel.style.display = 'block';
+  document.getElementById('compute-btn').textContent = 'Plan Shuttle';
+  document.getElementById('stats').style.display = 'none';
+  lastSingleRoute = null;
+  clearRouteDetails();
+  clearAlgorithmComparison();
+  render(null);
+});
+
+fromSelect.addEventListener('change', () => {
+  lastSingleRoute = null;
+  clearRouteDetails();
+  clearAlgorithmComparison();
+});
+
+toSelect.addEventListener('change', () => {
+  lastSingleRoute = null;
+  clearRouteDetails();
+  clearAlgorithmComparison();
+});
+
+const WALK_SPEED_M_PER_MIN = 80;
+const TRAVEL_MODES = {
+  walking: {label: 'Walking', metersPerMinute: WALK_SPEED_M_PER_MIN},
+  driving: {label: 'Driving', metersPerMinute: 400},
+};
+const travelModeSelect = document.getElementById('travel-mode-select');
+const travelModeButtons = Array.from(document.querySelectorAll('.travel-mode-option'));
+
+function syncTravelModeButtons(){
+  travelModeButtons.forEach((button) => {
+    const isActive = button.dataset.mode === travelModeSelect.value;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+function updateTravelModeLabels(){
+  const label = TRAVEL_MODES[travelModeSelect.value].label.toLowerCase();
+  document.getElementById('stat-time-label').textContent = `Est. travel time (${label})`;
+  syncTravelModeButtons();
+}
+
+travelModeButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    travelModeSelect.value = button.dataset.mode;
+    updateTravelModeLabels();
+    if (currentMode === 'single' && selectedPlaces.from && selectedPlaces.to) {
+      recalculateSingleRoute();
+    }
+  });
+});
+
+async function recalculateSingleRoute(){
+  const origin = selectedPlaces.from;
+  const destination = selectedPlaces.to;
+  if (!origin || !destination || origin.id === destination.id) {
+    return;
+  }
+
+  const statsEl = document.getElementById('stats');
+  const travelMode = travelModeSelect.value;
+  const button = document.getElementById('compute-btn');
+  button.disabled = true;
+  button.textContent = 'Finding route...';
+
+  try {
+    const routeResult = await requestOpenRoute(origin.location, destination.location, travelMode);
+    const distance = routeResult.distance;
+    lastSingleRoute = {source: origin.id, target: destination.id};
+    navigationState.routeInfo = routeResult;
+    navigationState.routeGeometry = routeResult.geometry;
+    navigationState.nextManeuverIndex = 0;
+    prepareNavigationSession();
+    drawRealRoute(routeResult.geometry, travelMode);
+    statsEl.style.display = 'block';
+    document.getElementById('route-path').style.display = 'none';
+    document.getElementById('stat-distance').textContent = `${distance.toFixed(0)} m`;
+    document.getElementById('stat-time').textContent = `${Math.max(1, Math.round(routeResult.seconds / 60))} min`;
+    document.getElementById('summary-start').textContent = origin.name;
+    document.getElementById('summary-destination').textContent = destination.name;
+    document.getElementById('summary-travel-mode').textContent = TRAVEL_MODES[travelMode].label;
+    document.getElementById('summary-walk-time').textContent = `about ${Math.max(1, Math.round(routeResult.seconds / 60))} min`;
+    updateRealtimeStatus(routeResult.seconds);
+    renderRealDirections(routeResult.maneuvers);
+    document.getElementById('route-details').style.display = 'block';
+    document.getElementById('campus-coordinate-notice').textContent = `OpenStreetMap route shown for ${TRAVEL_MODES[travelMode].label.toLowerCase()} travel.`;
+    if (latestBrowserLocation) {
+      evaluateCurrentNavigation(latestBrowserLocation);
+    }
+  } catch (error) {
+    document.getElementById('stats').style.display = 'none';
+    clearRouteDetails();
+    document.getElementById('campus-coordinate-notice').textContent = error.message;
+  } finally {
+    button.disabled = false;
+    button.textContent = 'Start Route';
+  }
+}
+
+travelModeSelect.addEventListener('change', async () => {
+  updateTravelModeLabels();
+  clearRouteDetails();
+  if (currentMode === 'single' && selectedPlaces.from && selectedPlaces.to) {
+    await recalculateSingleRoute();
+  }
+});
+updateTravelModeLabels();
+
+document.getElementById('quick-start-current').addEventListener('click', () => {
+  if (!latestBrowserLocation) {
+    setLocationStatus('Enable your location first so the start point can be filled automatically.', 'error');
+    return;
+  }
+  applyCurrentLocationAsStart(latestBrowserLocation);
+  fromSearch.value = 'Your current location';
+  placeSearchStatus.textContent = 'Current location selected as the start point.';
+});
+
+document.getElementById('compute-btn').addEventListener('click', async () => {
+  const statsEl = document.getElementById('stats');
+  const timeProfile = DEFAULT_TIME_PROFILE;
+
+  if (currentMode === 'single') {
+    const origin = selectedPlaces.from;
+    const destination = selectedPlaces.to;
+    if (!origin || !destination || origin.id === destination.id) {
+      document.getElementById('stats').style.display = 'none';
+      clearRouteDetails();
+      clearAlgorithmComparison();
+      placeSearchStatus.textContent = 'Select two different campus places from the route planner.';
+      return;
+    }
+
+    await recalculateSingleRoute();
+    return;
+  }
+
+  const depot = depotSelect.value;
+  const stops = shuttleStops.filter(s => s !== depot);
+  if (stops.length < 2) {
+    document.getElementById('campus-coordinate-notice').textContent = 'Add at least two stops before planning a shuttle.';
+    return;
+  }
+  const button = document.getElementById('compute-btn');
+  button.disabled = true;
+  button.textContent = 'Planning Shuttle...';
+  setTimeout(() => {
+    button.disabled = false;
+    button.textContent = 'Plan Shuttle';
+  }, 300);
+  document.getElementById('campus-coordinate-notice').textContent = 'Shuttle route planning remains a future enhancement. Single-trip route planning is active.';
+});
+
+render(null);
+</script>
+</body>
+</html>
